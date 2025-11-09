@@ -1,0 +1,169 @@
+.scrollTopBtn {
+    @include position(fixed, $right: -100px, $bottom: $com-spacing-3);
+    @include flex;
+    width: 44px;
+    height: 44px;
+    border: $zero;
+    z-index: 998;
+    border-radius: 5px;
+    background: $pink;
+    cursor: pointer;
+    opacity: 0;
+    @include transition(all 0.5s ease-in-out 0s);
+    @media (max-width: 999px) {
+        display: $none;
+    }
+    &.show {
+        right: $com-spacing-3;
+        opacity: 1;
+    }
+    &:hover {
+        background: $dark;
+    }
+    svg {
+        @include rotate(90deg);
+        width: 15px;
+        height: 15px;
+        path {
+            fill: $white;
+        }
+    }
+}
+
+.footer {
+    padding-top: $com-spacing-6;
+    background: #2D2D2D url(../images/footer.png) no-repeat right bottom;
+    border-radius: 90px 90px $zero $zero;
+    @media (max-width: 999px) {
+        padding-top: $com-spacing-3;
+        border-radius: 14px 14px $zero $zero;
+    }
+    .getthings {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: $com-spacing-3;
+        width: $fullwidth;
+        background: linear-gradient(90deg, #FCAB3C 0%, #FF5028 100%);
+        border-radius: 14px;
+        padding: $com-spacing-4;
+        .flex {
+            display: flex;
+            align-items: center;
+            gap: $com-spacing-3;
+            @media (max-width: 767px) {
+                display: block;
+                width: $fullwidth;
+            }
+            .barcode {
+                @include flex;
+                min-width: 126px;
+                max-width: 126px;
+                height: 126px;
+                background: $white;
+                border-radius: 10px;
+                padding: $com-spacing-2;
+                overflow: hidden;
+                @media (max-width: 767px) {
+                    margin: 0px auto;
+                }
+                img {
+                    max-width: $fullwidth;
+                    max-height: $fullwidth;
+                }
+            }
+            .title {
+                font-size: 24px;
+                color: $orange;
+                text-transform: uppercase;
+                @media (max-width: 767px) {
+                    text-align: center;
+                    justify-content: center;
+                    margin-top: $com-spacing-3;
+                }
+            }
+            p {
+                font-size: 14px;
+                color: $blak;
+                margin-top: $com-spacing-1;
+                @media (max-width: 767px) {
+                    text-align: center;
+                }
+            }
+            .icons {
+                display: flex;
+                align-items: center;
+                gap: $com-spacing-2;
+                flex-wrap: wrap;
+                margin-top: $com-spacing-2;
+                @media (max-width: 999px) {
+                    justify-content: center;
+                }
+                a img {
+                    width: 138px;
+                    height: 42px;
+                    @media (max-width: 999px) {
+                        width: 116px;
+                        height: 35px;
+                    }
+                }
+            }
+        }
+        .social {
+            @media (max-width: 999px) {
+                width: $fullwidth;
+                justify-content: center;
+            }
+        }
+    }
+    .rowbox {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: $com-spacing-4;
+        margin-top: $com-spacing-6;
+        @media (max-width: 999px) {
+            display: block;
+        }
+        .item {
+            .logo {
+                @media (max-width: 999px) {
+                    text-align: center;
+                }
+                img {
+                    max-width: 280px;
+                }
+            }
+            p {
+                font-size: 14px;
+                color: $white;
+                margin-top: $com-spacing-1;
+                @media (max-width: 999px) {
+                    text-align: center;
+                }
+            }
+            .list {
+                display: flex;
+                align-items: center;
+                gap: $com-spacing-6;
+                @media (max-width: 999px) {
+                    justify-content: center;
+                    flex-wrap: wrap;
+                    gap: $com-spacing-3;
+                    margin-top: $com-spacing-3;
+                }
+                a {
+                    display: flex;
+                    align-items: center;
+                    gap: $com-spacing-2;
+                    color: $white;
+                    @include transition(all 0.5s ease-in-out 0s);
+                    &:hover {
+                        color: $orange;
+                    }
+                }
+            }
+        }
+    }
+}
