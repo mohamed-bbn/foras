@@ -28,7 +28,7 @@
 @mixin section {
     position: relative;
     width: $fullwidth;
-    padding: $com-spacing-6 $zero;
+    padding: $com-spacing-7 $zero;
     overflow: hidden;
     @media (max-width: 999px) {
         padding: $com-spacing-3 $zero;
@@ -93,7 +93,7 @@
         padding: $com-spacing-1 $com-spacing-5;
     }
     &:hover {
-        background: $orange;
+        background: $dark;
     }
     &:focus {
         outline: $none;
@@ -241,6 +241,91 @@
     }
 }
 
+@mixin scroll {
+    position: relative;
+    width: $fullwidth;
+    .scroll-box {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: $com-spacing-2;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        scrollbar-width: none;
+        cursor: grab;
+        user-select: none;
+        a {
+            min-width: 105px;
+            text-align: center;
+            color: #727272;
+            padding: $com-spacing-3;
+            border-radius: 20px;
+            white-space: nowrap;
+            text-transform: capitalize;
+            @include transition(all 0.5s ease-in-out 0s);
+            &:hover,
+            &.active {
+                background: $orange;
+                color: $white;
+                svg {
+                    path {
+                        fill: $white;
+                    }
+                }
+            }
+            svg {
+                display: block;
+                margin: $zero $auto;
+                width: 32px;
+                height: 32px;
+                path {
+                    @include transition(all 0.5s ease-in-out 0s);
+                }
+            }
+        }
+    }
+    &::-webkit-scrollbar {
+        display: none;
+    }
+    .arrow {
+        @include flex;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: $white;
+        box-shadow: 0px 0px 10px #00000026;
+        color: #000;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        z-index: 5;
+        border: 1px solid $orange;
+        @include transition(all 0.5s ease-in-out 0s);
+        &:hover {
+            background: $ofwhite;
+        }
+    }
+    .arrow.left {
+        left: $com-spacing-1;
+        svg {
+            rotate: 88deg;
+        }
+    }
+    .arrow.right {
+        right: $com-spacing-1;
+        svg {
+            rotate: -88deg;
+        }
+    }
+    .arrow.hidden {
+        opacity: 0;
+        pointer-events: none;
+    }
+}
+
 @mixin hyprlink {
     display: block;
     @include position(relative);
@@ -323,43 +408,44 @@
     } /// End .Slick-list
     .slick-prev,
     .slick-next {
-        @include position(absolute, $top: 40%);
+        @include position(absolute, $top: 50%);
         cursor: pointer;
         border: $zero;
         padding: $zero;
         outline: $none;
-        font-size: $zero;
-        background: $none;
+        background: $white;
+        border-radius: 50%;
+        width: 38px;
+        height: 38px;
+        margin-top: -18px;
+        z-index: 5;
+        border: 1px solid $orange;
+        box-shadow: 0px 0px 10px #00000026;
         @include transition(all 0.5s ease-in-out 0s);
-        @media (max-width: 1199px) {
-            display: none !important;
+        &:hover {
+            background: $ofwhite;
         }
         svg {
-            width: 30px;
-            height: 30px;
+            width: 12px;
+            height: 12px;
             fill: $blak;
-            @include transition(all 0.5s ease-in-out 0s);
-        }
-        &:hover {
-            svg {
-                fill: $orange;
-            }
+            margin-top: -3px;
         }
     }
     .slick-next {
-        right: -40px;
+        right: $zero;
     }
     .slick-prev {
-        left: -40px;
+        left: $zero;
     }
     .slick-dots {
         display: none !important;
         margin-top: $com-spacing-6;
-        @media (max-width: 1199px) {
-            display: flex !important;
-            align-items: center;
-            justify-content: center;
-        }
+        // @media (max-width: 1199px) {
+        //     display: flex !important;
+        //     align-items: center;
+        //     justify-content: center;
+        // }
         li {
             @include position(relative);
             display: $inline;

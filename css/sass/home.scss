@@ -34,7 +34,6 @@ textarea,
 }
 
 body {
-    height: 6000px;
     &.no-scroll {
         overflow: hidden;
     }
@@ -115,23 +114,56 @@ section {
     right: -132px;
 }
 
+.advertising-banner.left {
+    left: -132px;
+}
+
 .headtitle {
-    @include flex;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: $com-spacing-3;
     .title {
-        &::before {
-            content: "";
+        display: flex;
+        align-items: center;
+        gap: $com-spacing-2;
+        color: $orange;
+    }
+    .store {
+        display: flex;
+        align-items: center;
+        position: relative;
+        min-width: 178px;
+        svg {
             position: absolute;
-            left: -26px;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: #FBCDCD;
-            z-index: -1;
-            @media (max-width: 999px) {
-                width: 30px;
-                height: 30px;
-                left: -13px;
-            }
+            left: $com-spacing-3;
+        }
+    }
+    .form-control {
+        background: #F6F1EA url(../images/arrow.svg) right 12px center no-repeat !important;
+        border: 1px solid #E0DBD5;
+        padding-left: 40px;
+        height: 44px;
+        option {
+            padding: 0 !important;
+        }
+    }
+    .scroll-box-wrapper {
+        width: auto;
+        @media (max-width: 1199px) {
+            width: $fullwidth;
+        }
+    }
+    .seeall {
+        color: $orange;
+        text-transform: capitalize;
+        margin-inline-end: 106px;
+        @media (max-width: 1199px) {
+            display: none;
+        }
+        &:hover {
+            text-decoration: underline
         }
     }
 }
