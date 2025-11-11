@@ -225,6 +225,23 @@ $(window).on("load", function() {
         ]
     });
 
+
+    initializeSlider(".slider-realestate", {
+        dots: true,
+        infinite: true,
+        speed: 1000,
+        adaptiveHeight: false,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        responsive: [
+            { breakpoint: 999, settings: { slidesToShow: 2, slidesToScroll: 1 } },
+            { breakpoint: 650, settings: { slidesToShow: 1, slidesToScroll: 1 } },
+
+        ]
+    });
+
     function toggleView(showMap) {
         if (showMap) {
             $('.mapitem').fadeIn(300);
@@ -292,10 +309,11 @@ $(window).on("load", function() {
 
 
     $(".toggle-pass").click(function() {
-        const input = $("input.pass");
+        const parent = $(this).closest(".position-relative");
+        const input = parent.find("input.pass");
         const isPassword = input.attr("type") === "password";
         input.attr("type", isPassword ? "text" : "password");
-        $(".toggle-pass").toggle();
+        parent.find(".eye, .eye-slash").toggle();
     });
     // End password
 
@@ -316,6 +334,109 @@ $(window).on("load", function() {
             setTimeout(() => $(this).text('Copy Code'), 1500);
         });
     });
+
+    ///////////////////////////////// Start Map //////////////////////////////////////////////////
+
+    // Set up the map
+    var map = L.map('map').setView([25.2854, 51.5310], 11);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors',
+        maxZoom: 18
+    }).addTo(map);
+
+    var markersData = {
+        offers: [
+            { id: 1, coords: [25.2854, 51.5310], icon: 'images/m-1.png', count: 3 },
+            { id: 2, coords: [25.2200, 51.4300], icon: 'images/m-2.jpg', count: 2 },
+            { id: 3, coords: [25.2200, 51.5200], icon: 'images/m-3.png', count: 4 },
+            { id: 4, coords: [25.3300, 51.4500], icon: 'images/m-4.png', count: 5 },
+            { id: 5, coords: [25.3550, 51.4800], icon: 'images/m-5.png', count: 3 },
+            { id: 6, coords: [25.4000, 51.6100], icon: 'images/m-6.png', count: 2 },
+            { id: 7, coords: [25.3900, 51.4200], icon: 'images/m-2.jpg', count: 1 },
+            { id: 8, coords: [25.3533, 51.4880], icon: 'images/m-3.png', count: 4 }
+        ],
+        stores: [
+            { id: 11, coords: [25.2854, 51.5310], icon: 'images/m-6.png', count: 2 },
+            { id: 12, coords: [25.2200, 51.4300], icon: 'images/m-5.png', count: 3 },
+            { id: 13, coords: [25.2200, 51.5200], icon: 'images/m-3.png', count: 1 },
+            { id: 14, coords: [25.3300, 51.4500], icon: 'images/m-4.png', count: 4 },
+            { id: 15, coords: [25.3550, 51.4800], icon: 'images/m-5.png', count: 2 },
+            { id: 16, coords: [25.4000, 51.6100], icon: 'images/m-6.png', count: 1 },
+            { id: 17, coords: [25.3900, 51.4200], icon: 'images/m-5.png', count: 2 },
+            { id: 18, coords: [25.3533, 51.4880], icon: 'images/m-1.png', count: 3 }
+        ]
+    };
+    var currentMarkers = [];
+    var currentPopup = null;
+
+    function makeHtmlIcon(iconUrl, count) {
+        var html = '<div class="html-marker"><div class="marker-circle"><img src="' + iconUrl + '"/><span class="marker-badge">' + count + '</span></div></div>';
+        return L.divIcon({
+            className: '',
+            html: html,
+            iconSize: [50, 50],
+            iconAnchor: [25, 25]
+        });
+    }
+
+    function showMarkers(type) {
+        $.each(currentMarkers, function(i, m) {
+            map.removeLayer(m);
+        });
+        currentMarkers = [];
+        $('#info-box').hide();
+        $('#offers-popup').hide();
+        if (currentPopup) map.closePopup(currentPopup);
+
+        $.each(markersData[type], function(i, item) {
+            var marker = L.marker(item.coords, {
+                icon: makeHtmlIcon(item.icon, item.count)
+            }).addTo(map);
+
+            if (type === 'offers') {
+                marker.on('click', function() {
+                    $('#offers-popup').fadeIn(200);
+                });
+            } else if (type === 'stores') {
+                var el = marker._icon;
+                $(el).hover(
+                    function() {
+                        var pos = map.latLngToContainerPoint(item.coords);
+                        $('#info-box').css({
+                            top: pos.y + 'px',
+                            left: pos.x + 'px'
+                        }).fadeIn(200);
+                    },
+                    function() {
+                        $('#info-box').fadeOut(100);
+                    }
+                );
+            }
+            currentMarkers.push(marker);
+        });
+    }
+
+
+    $('#offers-popup .close-btn').click(function() {
+        $('#offers-popup').fadeOut(100);
+    });
+
+    showMarkers('offers');
+
+    $('.tab-btn').click(function(e) {
+        e.preventDefault();
+        $('.tab-btn').removeClass('active');
+        $(this).addClass('active');
+        showMarkers($(this).data('type'));
+    });
+
+    window.onView = function(id) {
+        alert('Open view for item id: ' + id);
+    }
+    window.onDetails = function(id) {
+            alert('Open details for item id: ' + id);
+        }
+        //////////////////////////////////End Map ////////////////////////////////////////////////
 
 
 
