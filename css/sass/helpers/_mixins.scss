@@ -253,32 +253,34 @@
         scrollbar-width: none;
         cursor: grab;
         user-select: none;
-        a {
-            min-width: 105px;
-            text-align: center;
-            color: #727272;
-            padding: $com-spacing-3;
-            border-radius: 20px;
-            white-space: nowrap;
-            text-transform: capitalize;
-            @include transition(all 0.5s ease-in-out 0s);
-            &:hover,
-            &.active {
-                background: $orange;
-                color: $white;
-                svg {
-                    path {
-                        fill: $white;
+        &.listlinks {
+            a {
+                min-width: 105px;
+                text-align: center;
+                color: #727272;
+                padding: $com-spacing-3;
+                border-radius: 20px;
+                white-space: nowrap;
+                text-transform: capitalize;
+                @include transition(all 0.5s ease-in-out 0s);
+                &:hover,
+                &.active {
+                    background: $orange;
+                    color: $white;
+                    svg {
+                        path {
+                            fill: $white;
+                        }
                     }
                 }
-            }
-            svg {
-                display: block;
-                margin: $zero $auto;
-                width: 32px;
-                height: 32px;
-                path {
-                    @include transition(all 0.5s ease-in-out 0s);
+                svg {
+                    display: block;
+                    margin: $zero $auto;
+                    width: 32px;
+                    height: 32px;
+                    path {
+                        @include transition(all 0.5s ease-in-out 0s);
+                    }
                 }
             }
         }

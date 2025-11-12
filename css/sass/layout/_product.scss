@@ -447,15 +447,17 @@
         }
         .scroll-box {
             justify-content: flex-start;
-            a {
-                border: 1px solid #E0DBD5;
-                color: $blak;
-                min-width: inherit;
-                padding: $com-spacing-2 $com-spacing-3;
-                &.active,
-                &:hover {
-                    border: 1px solid $orange;
-                    color: $white;
+            &.listlinks {
+                a {
+                    border: 1px solid #E0DBD5;
+                    color: $blak;
+                    min-width: inherit;
+                    padding: $com-spacing-2 $com-spacing-3;
+                    &.active,
+                    &:hover {
+                        border: 1px solid $orange;
+                        color: $white;
+                    }
                 }
             }
         }
@@ -557,15 +559,17 @@
     .scroll-box-wrapper {
         .scroll-box {
             justify-content: flex-start;
-            a {
-                border: 1px solid #E0DBD5;
-                color: $blak;
-                min-width: inherit;
-                padding: $com-spacing-2 $com-spacing-3;
-                &.active,
-                &:hover {
-                    border: 1px solid $orange;
-                    color: $white;
+            &.listlinks {
+                a {
+                    border: 1px solid #E0DBD5;
+                    color: $blak;
+                    min-width: inherit;
+                    padding: $com-spacing-2 $com-spacing-3;
+                    &.active,
+                    &:hover {
+                        border: 1px solid $orange;
+                        color: $white;
+                    }
                 }
             }
         }

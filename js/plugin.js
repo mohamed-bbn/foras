@@ -84,68 +84,92 @@ $(window).on("load", function() {
     setActiveClass(".pagination", "li a");
     setActiveClass(".listmenu", "a");
     setActiveClass(".baroffers", "a");
-    setActiveClass(".scroll-box-wrapper", "a");
+    setActiveClass(".scroll-box-wrapper .listlinks", "a");
 
 
     // This function is specific to each element that gets the active class
 
 
-    const scrollAmount = 100; // Distance per click
+    const scrollAmount = 400; //        
 
-    $('.scroll-box-wrapper').each(function() {
-        const $wrapper = $(this);
-        const $scrollBox = $wrapper.find('.scroll-box');
-        const $leftArrow = $wrapper.find('.arrow.left');
-        const $rightArrow = $wrapper.find('.arrow.right');
+    function initScrollBoxes() {
+        $('.scroll-box-wrapper').each(function() {
+            const $wrapper = $(this);
+            const $scrollBox = $wrapper.find('.scroll-box');
+            const $leftArrow = $wrapper.find('.arrow.left');
+            const $rightArrow = $wrapper.find('.arrow.right');
 
-        // Stock update
-        function updateArrows() {
-            const scrollLeft = $scrollBox.scrollLeft();
-            const maxScroll = $scrollBox[0].scrollWidth - $scrollBox.outerWidth();
+            function updateArrows() {
+                const scrollLeft = $scrollBox.scrollLeft();
+                const maxScroll = $scrollBox[0].scrollWidth - $scrollBox.outerWidth();
 
-            $leftArrow.toggleClass('hidden', scrollLeft <= 0);
-            $rightArrow.toggleClass('hidden', scrollLeft >= maxScroll - 5);
-        }
+                if (maxScroll > 5) {
+                    $rightArrow.removeClass('hidden');
+                } else {
+                    $rightArrow.addClass('hidden');
+                }
 
-        // Click on the stock
-        $rightArrow.on('click', function() {
-            $scrollBox.animate({
-                scrollLeft: '+=' + scrollAmount
-            }, 400, updateArrows);
+                $leftArrow.toggleClass('hidden', scrollLeft <= 0);
+                $rightArrow.toggleClass('hidden', scrollLeft >= maxScroll - 5);
+            }
+
+            $rightArrow.off('click').on('click', function() {
+                $scrollBox.animate({ scrollLeft: '+=' + scrollAmount }, 400, updateArrows);
+            });
+
+            $leftArrow.off('click').on('click', function() {
+                $scrollBox.animate({ scrollLeft: '-=' + scrollAmount }, 400, updateArrows);
+            });
+
+            $scrollBox.off('scroll').on('scroll', updateArrows);
+
+            let isDown = false,
+                startX, scrollLeft;
+            $scrollBox.off('mousedown').on('mousedown', function(e) {
+                isDown = true;
+                $scrollBox.addClass('dragging');
+                startX = e.pageX - $scrollBox.offset().left;
+                scrollLeft = $scrollBox.scrollLeft();
+                e.preventDefault();
+            });
+            $(document).on('mouseup', function() {
+                isDown = false;
+                $scrollBox.removeClass('dragging');
+            });
+            $(document).on('mousemove', function(e) {
+                if (!isDown) return;
+                const x = e.pageX - $scrollBox.offset().left;
+                const walk = (x - startX) * 1.5;
+                $scrollBox.scrollLeft(scrollLeft - walk);
+                updateArrows();
+            });
+
+            const images = $scrollBox.find('img');
+            if (images.length > 0) {
+                let loaded = 0;
+                images.each(function() {
+                    if (this.complete) {
+                        loaded++;
+                    } else {
+                        $(this).on('load', function() {
+                            loaded++;
+                            if (loaded === images.length) {
+                                updateArrows();
+                            }
+                        });
+                    }
+                });
+                if (loaded === images.length) updateArrows();
+            } else {
+                updateArrows();
+            }
+            setTimeout(updateArrows, 500);
         });
-        $leftArrow.on('click', function() {
-            $scrollBox.animate({
-                scrollLeft: '-=' + scrollAmount
-            }, 400, updateArrows);
-        });
+    }
 
-        // Update inventory as you go
-        $scrollBox.on('scroll', updateArrows);
-
-        // Dragging with the mouse
-        let isDown = false,
-            startX, scrollLeft;
-        $scrollBox.on('mousedown', function(e) {
-            isDown = true;
-            $scrollBox.addClass('dragging');
-            startX = e.pageX - $scrollBox.offset().left;
-            scrollLeft = $scrollBox.scrollLeft();
-            e.preventDefault();
-        });
-        $(document).on('mouseup', function() {
-            isDown = false;
-            $scrollBox.removeClass('dragging');
-        });
-        $(document).on('mousemove', function(e) {
-            if (!isDown) return;
-            const x = e.pageX - $scrollBox.offset().left;
-            const walk = (x - startX) * 1.5;
-            $scrollBox.scrollLeft(scrollLeft - walk);
-            updateArrows();
-        });
-
-        // Activate the first time
-        updateArrows();
+    initScrollBoxes();
+    $(window).on('resize', function() {
+        initScrollBoxes();
     });
 
     // This function scroll
@@ -206,8 +230,6 @@ $(window).on("load", function() {
         ]
     });
 
-
-
     initializeSlider(".slider-sales,.slider-deals", {
         dots: true,
         infinite: true,
@@ -225,7 +247,6 @@ $(window).on("load", function() {
         ]
     });
 
-
     initializeSlider(".slider-realestate", {
         dots: true,
         infinite: true,
@@ -242,15 +263,43 @@ $(window).on("load", function() {
         ]
     });
 
+
     function toggleView(showMap) {
         if (showMap) {
-            $('.mapitem').fadeIn(300);
+            $('.mapitem').fadeIn(300, function() {
+                // ✅ تحديث الخريطة
+                if (typeof map !== 'undefined') {
+                    map.invalidateSize();
+                }
+
+                // ✅ السهم اليمين يظهر دايمًا
+                $(this).find('.scroll-box-wrapper .arrow.right').removeClass('hidden');
+
+                // ✅ تهيئة السلايدر بعد ظهور العنصر
+                if ($(this).find('.slider-brands').length) {
+                    initializeSlider(".slider-brands", {
+                        dots: true,
+                        infinite: true,
+                        speed: 1000,
+                        slidesToShow: 5,
+                        slidesToScroll: 1,
+                        autoplay: true,
+                        autoplaySpeed: 2000,
+                        responsive: [
+                            { breakpoint: 767, settings: { slidesToShow: 3, slidesToScroll: 1 } },
+                        ]
+                    });
+                }
+            });
+
             $('.item .rowbox, .hideitem').fadeOut(100);
         } else {
             $('.mapitem').fadeOut(300);
             $('.item .rowbox, .hideitem').fadeIn(100);
         }
     }
+
+
 
     $('.showmap').click(() => toggleView(true));
     $('.showlist').click(() => toggleView(false));
@@ -437,6 +486,74 @@ $(window).on("load", function() {
             alert('Open details for item id: ' + id);
         }
         //////////////////////////////////End Map ////////////////////////////////////////////////
+
+
+
+    $(function() {
+        let count = 0;
+
+        $(".compare-btn").on("click", function() {
+            $(this).toggleClass("active");
+
+            if ($(this).hasClass("active")) {
+                count++;
+            } else {
+                count--;
+                $(this).find(".active").removeClass("active");
+            }
+
+            $("#counter").text(count);
+            if (count > 0) {
+                $(".counter-box").fadeIn();
+            } else {
+                $(".counter-box").fadeOut();
+            }
+        });
+    });
+
+
+    $(document).on('click', '.counter-box', function() {
+        $('.popupcompare').fadeIn(300);
+    });
+
+    $(document).on('click', '.close-btn', function() {
+        $('.popupcompare').fadeOut(300);
+    });
+
+
+    $('#items-container').on('click', '.remov-btn', function() {
+        const item = $(this).parent();
+
+        if (confirm('Are you sure you want to delete this item?')) {
+            item.fadeOut(300, function() {
+                $(this).remove();
+            });
+        }
+    });
+
+    $('.clearall').click(function() {
+        if (confirm('Are you sure you want to delete all items?')) {
+            $('#items-container .compitem').fadeOut(300, function() {
+                $(this).remove();
+                $(".innercontant .alert").fadeOut(300);
+
+            });
+        }
+    });
+
+    $(document).on('click', '.showstores', function() {
+        $('.hideoffer').fadeOut(300);
+        $('.hidestores').fadeIn(300);
+    });
+
+    $(document).on('click', '.showoffer', function() {
+        $('.hideoffer').fadeIn(300);
+        $('.hidestores').fadeOut(300);
+    });
+
+    //////////////////////////////////End popup Comparison////////////////////////////////////////////////
+
+
 
 
 
