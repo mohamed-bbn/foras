@@ -10,6 +10,10 @@ $(window).on("load", function() {
         }
     });
 
+    /*----------------------------------------
+      HEADER STICKY ON SCROLL
+    ----------------------------------------*/
+
     $(function() {
         const navbarMenu = $("#navbar");
         const overlayMenu = $(".overlay");
@@ -44,15 +48,20 @@ $(window).on("load", function() {
         });
     });
 
+    /*----------------------------------------
+      NAVBAR TOGGLE (Burger Menu)
+    ----------------------------------------*/
 
     $('.cancel').click(function() {
         $('.navbar,.overlay').removeClass("active");
     });
+    // Close navbar
+
     $(".menu-item").click(function() {
         $(this).addClass("activelink").siblings().removeClass("activelink");
     });
 
-    ////////////////// End show Header
+    // Active menu item highlight
 
     //  Start Slider Price
     $(function() {
@@ -71,7 +80,10 @@ $(window).on("load", function() {
         $("#amount-min").val($("#slider-range").slider("values", 0).toLocaleString('en-US'));
         $("#amount-max").val($("#slider-range").slider("values", 1).toLocaleString('en-US'));
     });
-    //  End  Slider Price
+
+    /*----------------------------------------
+      PRICE RANGE SLIDER (jQuery UI)
+    ----------------------------------------*/
 
 
     function setActiveClass(parentSelector, childSelector) {
@@ -87,7 +99,9 @@ $(window).on("load", function() {
     setActiveClass(".scroll-box-wrapper .listlinks", "a");
 
 
-    // This function is specific to each element that gets the active class
+    /*----------------------------------------
+      ACTIVE CLASS HANDLER
+    ----------------------------------------*/
 
 
     const scrollAmount = 400; //        
@@ -172,7 +186,9 @@ $(window).on("load", function() {
         initScrollBoxes();
     });
 
-    // This function scroll
+    /*----------------------------------------
+      HORIZONTAL SCROLL BOXES (with drag)
+    ----------------------------------------*/
 
     $(".iconfilter").on("click", function() {
         toggleSidebar(true);
@@ -187,9 +203,9 @@ $(window).on("load", function() {
         $("body").toggleClass("no-scroll", show);
     }
 
-    ////////////////////////////////sidebar/////////////////////////////////
-
-
+    /*----------------------------------------
+       SIDEBAR TOGGLE
+     ----------------------------------------*/
 
 
     function initializeSlider(selector, options) {
@@ -210,6 +226,21 @@ $(window).on("load", function() {
         autoplay: true,
         autoplaySpeed: 2000,
         responsive: [
+            { breakpoint: 767, settings: { slidesToShow: 3, slidesToScroll: 1 } },
+        ]
+    });
+
+    initializeSlider(".slider-brands2", {
+        dots: true,
+        infinite: true,
+        speed: 1000,
+        slidesToShow: 12,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        responsive: [
+            { breakpoint: 1199, settings: { slidesToShow: 10, slidesToScroll: 1 } },
+            { breakpoint: 999, settings: { slidesToShow: 8, slidesToScroll: 1 } },
             { breakpoint: 767, settings: { slidesToShow: 3, slidesToScroll: 1 } },
         ]
     });
@@ -267,15 +298,10 @@ $(window).on("load", function() {
     function toggleView(showMap) {
         if (showMap) {
             $('.mapitem').fadeIn(300, function() {
-                // ✅ تحديث الخريطة
                 if (typeof map !== 'undefined') {
                     map.invalidateSize();
                 }
-
-                // ✅ السهم اليمين يظهر دايمًا
                 $(this).find('.scroll-box-wrapper .arrow.right').removeClass('hidden');
-
-                // ✅ تهيئة السلايدر بعد ظهور العنصر
                 if ($(this).find('.slider-brands').length) {
                     initializeSlider(".slider-brands", {
                         dots: true,
@@ -298,11 +324,12 @@ $(window).on("load", function() {
             $('.item .rowbox, .hideitem').fadeIn(100);
         }
     }
-
-
-
     $('.showmap').click(() => toggleView(true));
     $('.showlist').click(() => toggleView(false));
+
+    /*----------------------------------------
+      TOGGLE LIST / MAP VIEW
+    ----------------------------------------*/
 
 
     $(window).scroll(function() {
@@ -318,12 +345,18 @@ $(window).on("load", function() {
         return false;
     });
 
-    // End Scroll Top
+    /*----------------------------------------
+         SCROLL TO TOP BUTTON
+       ----------------------------------------*/
 
 
     $('.addfavorite').click(function() {
         $(this).toggleClass('active');
     });
+
+    /*----------------------------------------
+       FAVORITE TOGGLE
+     ----------------------------------------*/
 
 
     function makeTimer() {
@@ -354,7 +387,9 @@ $(window).on("load", function() {
     }
     setInterval(makeTimer, 1000);
 
-    /////////////////////////////////////////////////////////////////
+    /*----------------------------------------
+      COUNTDOWN TIMER
+    ----------------------------------------*/
 
 
     $(".toggle-pass").click(function() {
@@ -364,7 +399,10 @@ $(window).on("load", function() {
         input.attr("type", isPassword ? "text" : "password");
         parent.find(".eye, .eye-slash").toggle();
     });
-    // End password
+
+    /*----------------------------------------
+      SHOW / HIDE PASSWORD
+    ----------------------------------------*/
 
     $('.accordion-header').click(function() {
         $('.accordion-content').slideUp();
@@ -375,6 +413,10 @@ $(window).on("load", function() {
         }
     });
 
+    /*----------------------------------------
+      ACCORDION TOGGLE
+    ----------------------------------------*/
+
 
     $('.copy-btn').click(function() {
         const text = $(this).siblings('.copy-text').text(); //
@@ -384,7 +426,9 @@ $(window).on("load", function() {
         });
     });
 
-    ///////////////////////////////// Start Map //////////////////////////////////////////////////
+    /*----------------------------------------
+       COPY TO CLIPBOARD
+     ----------------------------------------*/
 
     // Set up the map
     var map = L.map('map').setView([25.2854, 51.5310], 11);
@@ -464,8 +508,6 @@ $(window).on("load", function() {
             currentMarkers.push(marker);
         });
     }
-
-
     $('#offers-popup .close-btn').click(function() {
         $('#offers-popup').fadeOut(100);
     });
@@ -483,9 +525,12 @@ $(window).on("load", function() {
         alert('Open view for item id: ' + id);
     }
     window.onDetails = function(id) {
-            alert('Open details for item id: ' + id);
-        }
-        //////////////////////////////////End Map ////////////////////////////////////////////////
+        alert('Open details for item id: ' + id);
+    }
+
+    /*----------------------------------------
+      LEAFLET MAP INITIALIZATION
+    ----------------------------------------*/
 
 
 
@@ -536,7 +581,7 @@ $(window).on("load", function() {
             $('#items-container .compitem').fadeOut(300, function() {
                 $(this).remove();
                 $(".innercontant .alert").fadeOut(300);
-
+                $(".allcompare").fadeOut(300);
             });
         }
     });
@@ -551,10 +596,54 @@ $(window).on("load", function() {
         $('.hidestores').fadeOut(300);
     });
 
-    //////////////////////////////////End popup Comparison////////////////////////////////////////////////
+    /*----------------------------------------
+       COMPARISON POPUP
+     ----------------------------------------*/
+
+    $(function() {
+        $(".store-select").each(function() {
+            const $select = $(this);
+            const $header = $select.find(".ss-header");
+            const $panel = $select.find(".ss-panel");
+            const $list = $select.find(".ss-list");
+            const $title = $select.find(".title p");
+            const $pill = $select.find(".pill");
+
+            $header.on("click", function(e) {
+                e.stopPropagation();
+                $(".store-select").not($select).removeClass("active");
+                $(".store-select .ss-panel").not($panel).removeClass("open");
+                $panel.toggleClass("open");
+                if ($panel.hasClass("open")) {
+                    $select.addClass("active");
+                } else {
+                    $select.removeClass("active");
+                }
+            });
+
+            $list.on("click", ".ss-item", function(e) {
+                e.stopPropagation();
+                $list.find(".ss-item").removeClass("active");
+                $(this).addClass("active");
+
+                const name = $(this).find(".name").text().trim();
+                $title.text(name.length > 12 ? name.slice(0, 12) + "…" : name);
+                $pill.text(name.length > 12 ? name.slice(0, 12) + "…" : name);
+                $panel.removeClass("open");
+                $select.removeClass("active");
+            });
+        });
+
+        $(document).on("click", function() {
+            $(".store-select .ss-panel").removeClass("open");
+            $(".store-select").removeClass("active");
+        });
+    });
+
+    /*----------------------------------------
+       Select Stores
+     ----------------------------------------*/
 
 
 
-
-
-});
+}); // END window.load

@@ -389,7 +389,6 @@
 
 @mixin styleslider {
     @include position(relative);
-    direction: ltr;
     .slick-list {
         @include position(relative);
         display: $block;

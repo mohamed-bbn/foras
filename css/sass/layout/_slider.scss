@@ -348,13 +348,15 @@
                 max-width: $fullwidth;
             }
         }
-        .slider-brands {
+        .slider-brands,
+        .slider-brands2 {
             @include styleslider;
             .slick-list {
                 margin: $zero !important;
                 @media (max-width: 999px) {}
             }
             .subitem {
+                position: relative;
                 display: inline-block;
                 text-align: center;
                 vertical-align: top;
@@ -363,6 +365,21 @@
                     border: 1px solid #F1F1F1;
                     width: 72px;
                     height: 72px;
+                }
+                .num {
+                    @include flex;
+                    position: absolute;
+                    right: $zero;
+                    top: $zero;
+                    background: $orange;
+                    color: $white;
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 50%;
+                    @media (max-width: 767px) {
+                        left: $zero;
+                        margin: $zero auto;
+                    }
                 }
             }
         }
@@ -436,6 +453,13 @@
                         }
                     }
                 }
+            }
+        }
+    }
+    &.herooffers {
+        .item {
+            .sliditems {
+                max-width: $fullwidth;
             }
         }
     }
@@ -1328,6 +1352,140 @@
             &:hover {
                 border: 1px solid $orange;
                 color: $orange;
+            }
+        }
+    }
+}
+
+.store-select {
+    position: relative;
+    width: 178px;
+    // height: 44px;
+    background: #F6F1EA;
+    border: 1px solid #E0DBD5;
+    border-radius: 0.375rem;
+    overflow: hidden;
+    &.active {
+        overflow: inherit;
+    }
+    .ss-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: $com-spacing-2;
+        padding: 7px $com-spacing-3;
+        cursor: pointer;
+        user-select: none;
+        .title {
+            display: flex;
+            align-items: center;
+            gap: $com-spacing-1;
+            flex: 1;
+            p {
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                max-width: 90px;
+            }
+        }
+    }
+    .ss-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: $com-spacing-2 $com-spacing-3;
+        gap: $com-spacing-2;
+        background: #FFF5F2;
+        border-radius: 6px;
+        @media (max-width: 999px) {
+            // display: block;
+        }
+        .filter-btn {
+            color: $blak;
+        }
+        .pill {
+            background: $orange;
+            color: $white;
+            padding: 2px $com-spacing-5;
+            border-radius: 20px;
+            @media (max-width: 999px) {
+                display: none;
+            }
+        }
+    }
+    .ss-panel {
+        position: absolute;
+        right: $zero;
+        background: $white;
+        width: 280px;
+        border: 1px solid #0000001A;
+        border-radius: 8px;
+        max-height: $zero;
+        overflow: hidden;
+        padding: $com-spacing-2;
+        box-shadow: 0px 4px 6px -1px #0000001A;
+        transition: max-height 260ms ease;
+        @media (max-width: 999px) {
+            width: $fullwidth;
+        }
+        z-index: 10;
+        &.open {
+            max-height: 420px;
+        }
+    }
+    .ss-list {
+        max-height: 360px;
+        overflow: auto;
+        margin-top: $com-spacing-2;
+    }
+    .ss-item {
+        display: flex;
+        align-items: center;
+        gap: $com-spacing-2;
+        padding: $com-spacing-2;
+        border-radius: 8px;
+        transition: background .18s, transform .08s;
+        cursor: pointer;
+        &.active {
+            background: #F6F1EA;
+            border: 1px solid #E0DBD5;
+            .count {
+                background: $white;
+            }
+        }
+        .icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: $ofwhite;
+            border: 1px solid #F1F1F1;
+            overflow: hidden;
+            @media (max-width: 999px) {
+                display: none;
+            }
+            img {
+                width: $fullwidth;
+                height: $fullwidth;
+                object-fit: cover;
+            }
+        }
+        .name {
+            flex: 1;
+            color: $blak;
+            @media (max-width: 999px) {
+                font-size: 14px;
+            }
+        }
+        .count {
+            @include flex;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: #F6F1EA;
+            color: $blak;
+            @media (max-width: 999px) {
+                width: 20px;
+                height: 20px;
+                font-size: 12px;
             }
         }
     }
