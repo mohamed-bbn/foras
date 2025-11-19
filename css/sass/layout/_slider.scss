@@ -338,26 +338,18 @@
                 }
             }
         }
-        .sliditems,
-        .sliderall {
+        .sliditems {
             position: relative;
-            max-width: 480px;
+            width: $fullwidth;
             height: 72px;
             margin-top: $com-spacing-6;
             @media (max-width: 999px) {
                 margin-top: $com-spacing-3;
-                max-width: $fullwidth;
             }
         }
-        .sliderall {
-            max-width: $fullwidth;
-            margin: $zero;
-        }
-        .slider-brands,
-        .slider-brands2 {
+        .slider-brands {
             @include styleslider;
             .slick-list {
-                margin: $zero !important;
                 @media (max-width: 999px) {}
             }
             .subitem {
@@ -365,6 +357,7 @@
                 display: inline-block;
                 text-align: center;
                 vertical-align: top;
+                margin: $zero $com-spacing-2;
                 img {
                     border-radius: 50%;
                     border: 1px solid #F1F1F1;
@@ -375,16 +368,15 @@
                     @include flex;
                     position: absolute;
                     right: $zero;
+                    left: $zero;
                     top: $zero;
+                    margin: $zero auto;
                     background: $orange;
                     color: $white;
                     width: 30px;
                     height: 30px;
                     border-radius: 50%;
-                    @media (max-width: 767px) {
-                        left: $zero;
-                        margin: $zero auto;
-                    }
+                    @media (max-width: 767px) {}
                 }
             }
         }
@@ -1628,10 +1620,17 @@
 .realestate-map {
     .container {
         grid-template-columns: 300px 1fr;
+        @media (max-width: 999px) {
+            grid-template-columns: 1fr;
+        }
     }
     .sidebar {
         border: $zero;
         padding: $zero;
+        @media (max-width: 999px) {
+            padding: $com-spacing-3;
+            padding-top: $com-spacing-8;
+        }
         .field {
             @include flex;
             margin: $zero;
@@ -1788,7 +1787,7 @@
                     display: block;
                     min-width: 200px;
                     max-width: 200px;
-                    height: $fullwidth;
+                    // height: $fullwidth;
                     background: #F6EFD9;
                     overflow: hidden;
                     img {

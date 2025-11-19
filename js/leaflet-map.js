@@ -8,8 +8,8 @@
                      map.invalidateSize();
                  }
                  $(this).find('.scroll-box-wrapper .arrow.right').removeClass('hidden');
-                 if ($(this).find('.slider-brands,.slider-brands2').length) {
-                     initializeSlider(".slider-brands,.slider-brands2", {});
+                 if ($(this).find('.slider-brands').length) {
+                     initializeSlider(".slider-brands", {});
                  }
              });
 

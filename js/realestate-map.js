@@ -41,8 +41,51 @@ document.addEventListener("DOMContentLoaded", function() {
             markerBox.style.top = (pos.y - 50) + "px";
             markerBox.style.display = "block";
 
-            boxContent.innerHTML = realestateData[item.id] || "<p>لا توجد بيانات لهذا العقار</p>";
+            // boxContent.innerHTML = realestateData[item.id] || "<p>لا توجد بيانات لهذا العقار</p>";
         });
     });
+
+    // -----------------------------
+    //     (Drag)
+    // -----------------------------
+
+    const box = document.querySelector(".drag-box");
+
+    let isDragging = false;
+    let startX;
+    let initialLeft;
+
+    function getClientX(e) {
+        return e.touches ? e.touches[0].clientX : e.clientX;
+    }
+
+    function startDrag(e) {
+        isDragging = true;
+        startX = getClientX(e);
+        initialLeft = parseInt(window.getComputedStyle(box).left);
+        box.style.cursor = "grabbing";
+    }
+
+    function onDrag(e) {
+        if (!isDragging) return;
+
+        let deltaX = getClientX(e) - startX;
+        box.style.left = initialLeft + deltaX + "px";
+    }
+
+    function stopDrag() {
+        isDragging = false;
+        box.style.cursor = "grab";
+    }
+
+    box.addEventListener("mousedown", startDrag);
+    box.addEventListener("touchstart", startDrag);
+
+    document.addEventListener("mousemove", onDrag);
+    document.addEventListener("touchmove", onDrag);
+
+    document.addEventListener("mouseup", stopDrag);
+    document.addEventListener("touchend", stopDrag);
+
 
 });

@@ -16,6 +16,22 @@
     }
 }
 
+.overlaybro {
+    position: fixed;
+    inset: $zero;
+    width: $fullwidth;
+    height: $fullwidth;
+    background: #000000cc;
+    opacity: 0;
+    visibility: hidden;
+    @include transition(all 0.5s ease-in-out 0s);
+    z-index: 1003;
+    &.active {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
 .scroll-box-wrapper {
     @include scroll;
 }
@@ -127,6 +143,7 @@
         }
         .slick-prev,
         .slick-next {
+            opacity: 1 !important;
             top: -65px;
             @media (max-width: 1199px) {
                 display: none !important;
@@ -634,6 +651,7 @@
         }
         .slick-prev,
         .slick-next {
+            opacity: 1 !important;
             top: -48px;
             @media (max-width: 1199px) {
                 display: none !important;

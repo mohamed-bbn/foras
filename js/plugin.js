@@ -221,19 +221,6 @@ $(window).on("load", function() {
         dots: true,
         infinite: true,
         speed: 1000,
-        slidesToShow: 5,
-        slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 2000,
-        responsive: [
-            { breakpoint: 767, settings: { slidesToShow: 3, slidesToScroll: 1 } },
-        ]
-    });
-
-    initializeSlider(".slider-brands2", {
-        dots: true,
-        infinite: true,
-        speed: 1000,
         slidesToShow: 12,
         slidesToScroll: 1,
         autoplay: true,
@@ -487,5 +474,123 @@ $(window).on("load", function() {
      ----------------------------------------*/
 
 
+
+    $('.slider-box').each(function() {
+
+        const sliderId = $(this).data('slider');
+        const $slider = $(this);
+        const $slides = $slider.find('.slide');
+
+        const $thumbsWrapper = $('.thumbs-box[data-slider="' + sliderId + '"]');
+        const $thumbsContainer = $thumbsWrapper.find('.thumbs');
+        const $thumbLeft = $thumbsWrapper.find('.thumb-arrow.left');
+        const $thumbRight = $thumbsWrapper.find('.thumb-arrow.right');
+
+        let currentIndex = 0;
+        const total = $slides.length;
+        const thumbWidth = 250;
+
+        // Create thumbnails
+        $slides.each(function(i) {
+            const thumbImg = $(this).find('img').clone();
+            const $thumb = $('<span data-index="' + i + '"></span>').append(thumbImg);
+            $thumbsContainer.append($thumb);
+        });
+
+        const $allThumbs = $thumbsContainer.find('span');
+        $allThumbs.eq(0).addClass('active');
+
+        function getThumbVisible() {
+            return Math.floor($thumbsWrapper.width() / thumbWidth);
+        }
+
+        if (total > getThumbVisible()) {
+            $thumbsWrapper.addClass('show-thumbs-arrows');
+        }
+
+        let thumbPosition = 0;
+
+        function updateSlider(index) {
+            if (index < 0) index = total - 1;
+            if (index >= total) index = 0;
+            currentIndex = index;
+
+            $slides.parent().css('transform', 'translateX(' + (-100 * index) + '%)');
+
+            $allThumbs.removeClass('active')
+                .eq(index).addClass('active');
+
+            const thumbVisible = getThumbVisible();
+
+            if (total > thumbVisible) {
+                const maxPos = total - thumbVisible;
+                thumbPosition = Math.min(
+                    Math.max(index - Math.floor(thumbVisible / 2), 0),
+                    maxPos
+                );
+                $thumbsContainer.css('transform', 'translateX(' + (-thumbWidth * thumbPosition) + 'px)');
+            }
+        }
+
+        // Click thumbnail
+        $allThumbs.click(function() {
+            updateSlider($(this).data('index'));
+        });
+
+        // Main arrows
+        $slider.find('.main-arrow.right').click(function() {
+            updateSlider(currentIndex + 1);
+        });
+
+        $slider.find('.main-arrow.left').click(function() {
+            updateSlider(currentIndex - 1);
+        });
+
+        // Thumbs arrows
+        $thumbRight.click(function() {
+            const thumbVisible = getThumbVisible();
+            const maxPos = total - thumbVisible;
+
+            if (thumbPosition < maxPos) {
+                thumbPosition++;
+                $thumbsContainer.css('transform', 'translateX(' + (-thumbWidth * thumbPosition) + 'px)');
+            }
+        });
+
+        $thumbLeft.click(function() {
+            if (thumbPosition > 0) {
+                thumbPosition--;
+                $thumbsContainer.css('transform', 'translateX(' + (-thumbWidth * thumbPosition) + 'px)');
+            }
+        });
+
+        // Autoplay
+        setInterval(function() {
+            updateSlider(currentIndex + 1);
+        }, 3000);
+
+    });
+
+    $(function() {
+        $('.btnhide').on('click', function() {
+            $(this).toggleClass('active');
+            $(".thumbs-wrapper.action").toggleClass('show');
+        });
+
+        $('.custom-slider').on('click', '.slide', function() {
+            $(".overlaybro, .popupbrochure").addClass('active');
+            $("body").addClass("no-scroll");
+        });
+
+        $('.close-btn, .overlaybro').on('click', function() {
+            $(".overlaybro, .popupbrochure").removeClass('active');
+            $("body").removeClass("no-scroll");
+        });
+
+    });
+
+    /*----------------------------------------
+    Slider brochure
+    ----------------------------------------*/
 
 }); // END window.load
