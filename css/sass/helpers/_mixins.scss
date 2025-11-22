@@ -156,23 +156,22 @@
     @include flex;
     flex-wrap: wrap;
     gap: $com-spacing-2;
-    margin-top: $com-spacing-5;
     a {
         @include flex;
         position: relative;
         @include transition(all 0.5s ease-in-out 0s);
         color: $white;
-        min-width: 38px;
-        max-width: 38px;
-        height: 38px;
+        min-width: 40px;
+        max-width: 40px;
+        height: 40px;
         transform: rotate(0);
-        @include border-radius(50%);
+        border-radius: 8px;
         text-transform: capitalize;
         &:before {
             @include overlay;
-            border-radius: 50%;
+            border-radius: 8px;
             transform: scale(0.0);
-            background: $white;
+            background: $ofwhite;
             transform-origin: center;
             transform-style: preserve-3d;
             transition: all 0.4s cubic-bezier(0.62, 0.21, 0.45, 1.52);
@@ -509,8 +508,9 @@
         @include border-radius(50%);
     }
     input[type="radio"]:checked+.label-text:before {
-        background: $blak;
+        background: $orange;
         box-shadow: inset 0 0 0px 4px $white;
+        border: 1px solid $orange;
     }
     input[type="checkbox"]:checked+.label-text:before {
         background: $blak url(../images/tick.svg) no-repeat center center;

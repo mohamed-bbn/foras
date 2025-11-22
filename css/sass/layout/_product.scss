@@ -231,6 +231,7 @@
         }
         .slick-prev,
         .slick-next {
+            opacity: 1;
             top: -65px;
             @media (max-width: 1199px) {
                 display: none !important;
@@ -426,30 +427,54 @@
             }
         }
     }
-    .bottoms {
+}
+
+.bottoms.comparebtn {
+    display: flex;
+    align-items: center;
+    gap: $com-spacing-3;
+    padding-top: $com-spacing-3;
+    border-top: 1px solid #E0DBD5;
+    margin-top: $com-spacing-3;
+    .bottom {
         display: flex;
         align-items: center;
-        gap: $com-spacing-3;
-        padding-top: $com-spacing-2;
-        border-top: 1px solid #E0DBD5;
-        margin-top: $com-spacing-3;
+        flex: 1;
+        gap: $com-spacing-1;
+        padding: $com-spacing-2;
+        border-radius: 60px;
+        &:first-child {
+            background: $white;
+            border: 1px solid #E0DBD5;
+            color: $blak;
+            &:hover {}
+        }
+    }
+    &.active {
         .bottom {
-            display: flex;
-            align-items: center;
-            flex: 1;
-            gap: $com-spacing-1;
-            padding: $com-spacing-2;
             &:first-child {
-                background: $white;
-                border: 1px solid #E0DBD5;
-                color: $blak;
-                &:hover {
-                    border: 1px solid $orange;
-                    color: $orange;
+                border: 1px solid #00C950;
+                background: #F0FDF4;
+                .added {
+                    color: #00C950;
                 }
             }
         }
     }
+}
+
+.comparebtn .added {
+    display: none;
+}
+
+.comparebtn.active .default {
+    display: none;
+}
+
+.comparebtn.active .added {
+    display: inline-flex;
+    align-items: center;
+    gap: $com-spacing-1;
 }
 
 .item-coupouns {
@@ -703,6 +728,7 @@
             }
         }
         .inner {
+            width: $fullwidth;
             padding: $com-spacing-3;
             .price {
                 display: flex;

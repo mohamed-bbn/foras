@@ -593,4 +593,80 @@ $(window).on("load", function() {
     Slider brochure
     ----------------------------------------*/
 
+
+    function checkEmpty() {
+        if ($(".items-list li").length === 0) {
+            $(".top-controls").hide();
+            $(".numcart").hide();
+            $(".emptyitem").hide();
+            $(".empty-message").show();
+        }
+    }
+
+    // ======Select all ======
+    $("#check-all").on("change", function() {
+        $(".item-check").prop("checked", $(this).prop("checked"));
+    });
+
+    // ======Track any changes to the checkbox item  ======
+    $(document).on("change", ".item-check", function() {
+
+        let total = $(".item-check").length;
+        let checked = $(".item-check:checked").length;
+
+        // If they were all educated → Sign on the main page
+        $("#check-all").prop("checked", total === checked);
+    });
+
+    // ====== Delete one item ======
+    $(document).on("click", ".delete-btn", function() {
+
+        let li = $(this).closest("li");
+        let checkbox = li.find(".item-check");
+
+        if (!checkbox.prop("checked")) {
+            alert("This item must be selected first before deletion.");
+            return;
+        }
+
+        if (!confirm("Do you want to delete this item?")) return;
+
+        li.slideUp(200, function() {
+            $(this).remove();
+            checkEmpty();
+        });
+    });
+
+    // ====== Delete selected items ======
+    $("#delete-selected").on("click", function() {
+        let selected = $(".item-check:checked");
+        if (selected.length === 0) {
+            alert("An item must be selected first before deletion.");
+            return;
+        }
+        if (!confirm("Do you want to delete the selected items?")) return;
+        selected.each(function() {
+            $(this).closest("li").slideUp(200, function() {
+                $(this).remove();
+                checkEmpty();
+            });
+        });
+        $("#check-all").prop("checked", false);
+    });
+
+    /*----------------------------------------
+    Cart  delete
+    ----------------------------------------*/
+
+
+    $('#copy').click(() => {
+        const $inp = $('#link');
+        $inp.select();
+        navigator.clipboard.writeText($inp.val());
+    });
+
+    /*----------------------------------------
+    Copy  delete
+    ----------------------------------------*/
+
 }); // END window.load

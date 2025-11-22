@@ -201,6 +201,27 @@
          $('.hidestores').fadeOut(300);
      });
 
+     $(function() {
+         let count = 0;
+         $(".comparebtn").on("click", function() {
+             $(this).toggleClass("active");
+
+             if ($(this).hasClass("active")) {
+                 count++;
+             } else {
+                 count--;
+                 $(this).find(".active").removeClass("active");
+             }
+             $("#coun").text(count);
+             if (count > 0) {
+                 $(".comparebox").fadeIn();
+             } else {
+                 $(".comparebox").fadeOut();
+             }
+         });
+     });
+
+
      /*----------------------------------------
         COMPARISON POPUP
       ----------------------------------------*/

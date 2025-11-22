@@ -917,6 +917,14 @@
     @media (max-width: 550px) {
       .hero-section .itemsection .rowbox {
         grid-template-columns: repeat(1, 1fr); } }
+    .hero-section .itemsection .rowbox.g-three {
+      grid-template-columns: repeat(3, 1fr); }
+      @media (max-width: 1199px) {
+        .hero-section .itemsection .rowbox.g-three {
+          grid-template-columns: repeat(2, 1fr); } }
+      @media (max-width: 550px) {
+        .hero-section .itemsection .rowbox.g-three {
+          grid-template-columns: repeat(1, 1fr); } }
     .hero-section .itemsection .rowbox .itemrow {
       background: #fff;
       border: 1px solid #E0DBD5;
@@ -964,6 +972,167 @@
             width: 100%;
             height: 100%;
             object-fit: cover; }
+    .hero-section .itemsection .rowbox .itemsnap {
+      position: relative;
+      background: #fff;
+      border: 1px solid #E0DBD5;
+      border-radius: 10px;
+      overflow: hidden; }
+      .hero-section .itemsection .rowbox .itemsnap .addfavorite {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 48px;
+        height: 48px;
+        background: #FF5028;
+        -webkit-border-radius: 50%;
+        border-radius: 50%;
+        background-clip: padding-box;
+        box-shadow: 10px 5px 40px #6b6b6b1f;
+        -moz-transition: all 0.2s ease-in-out 0s;
+        -o-transition: all 0.2s ease-in-out 0s;
+        -webkit-transition: all 0.2s ease-in-out 0s;
+        transition: all 0.2s ease-in-out 0s;
+        cursor: pointer; }
+        .hero-section .itemsection .rowbox .itemsnap .addfavorite:hover .tooltip-text {
+          visibility: visible;
+          opacity: 1; }
+        .hero-section .itemsection .rowbox .itemsnap .addfavorite.active {
+          background: #fff; }
+          .hero-section .itemsection .rowbox .itemsnap .addfavorite.active svg path {
+            fill: #FF5028; }
+        .hero-section .itemsection .rowbox .itemsnap .addfavorite svg {
+          width: 24px;
+          height: 24px; }
+          .hero-section .itemsection .rowbox .itemsnap .addfavorite svg path {
+            fill: #fff; }
+        .hero-section .itemsection .rowbox .itemsnap .addfavorite .tooltip-text {
+          visibility: hidden;
+          position: absolute;
+          left: 60px;
+          font-size: 14px;
+          padding: 4px 8px;
+          min-width: 110px;
+          opacity: 0;
+          transition: opacity 0.3s;
+          color: #fff;
+          background: #000;
+          text-transform: capitalize;
+          white-space: nowrap;
+          text-align: center;
+          border-radius: 4px;
+          box-shadow: rgba(0, 0, 0, 0.3) 4px 4px 8px; }
+          .hero-section .itemsection .rowbox .itemsnap .addfavorite .tooltip-text::after {
+            content: "";
+            position: absolute;
+            top: 42%;
+            left: -8px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #000 transparent transparent transparent;
+            rotate: 90deg; }
+      .hero-section .itemsection .rowbox .itemsnap .photo {
+        display: block;
+        width: 100%;
+        height: 380px;
+        padding: 8px;
+        background: #F6EFD9;
+        border-radius: 10px;
+        overflow: hidden; }
+        @media (max-width: 999px) {
+          .hero-section .itemsection .rowbox .itemsnap .photo {
+            height: 280px; } }
+        .hero-section .itemsection .rowbox .itemsnap .photo img {
+          width: 100%;
+          height: 100%;
+          border-radius: 10px;
+          object-fit: cover; }
+      .hero-section .itemsection .rowbox .itemsnap .inner {
+        padding: 8px; }
+        .hero-section .itemsection .rowbox .itemsnap .inner .title {
+          font-size: 22px;
+          font-weight: 500; }
+          .hero-section .itemsection .rowbox .itemsnap .inner .title:hover {
+            color: #FF5028; }
+      .hero-section .itemsection .rowbox .itemsnap .textend {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 8px;
+        margin-top: 8px; }
+        .hero-section .itemsection .rowbox .itemsnap .textend span {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border: 1px solid #E0DBD5;
+          border-radius: 30px;
+          color: #FF5028;
+          font-weight: 600;
+          padding: 4px 12px; }
+        .hero-section .itemsection .rowbox .itemsnap .textend p {
+          font-weight: 600;
+          text-transform: capitalize; }
+      .hero-section .itemsection .rowbox .itemsnap .contant {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 8px;
+        border: 0.8px solid #0000001A;
+        border-radius: 10px;
+        margin-top: 8px; }
+        .hero-section .itemsection .rowbox .itemsnap .contant.green {
+          background: #22C55E0D; }
+        .hero-section .itemsection .rowbox .itemsnap .contant .flex {
+          display: flex;
+          align-items: center;
+          gap: 4px; }
+          .hero-section .itemsection .rowbox .itemsnap .contant .flex .logo {
+            border-radius: 50%;
+            border: 1px solid #F1F1F1;
+            min-width: 40px;
+            max-width: 40px;
+            height: 40px;
+            overflow: hidden; }
+            .hero-section .itemsection .rowbox .itemsnap .contant .flex .logo img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover; }
+          .hero-section .itemsection .rowbox .itemsnap .contant .flex .title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            font-weight: 500; }
+            .hero-section .itemsection .rowbox .itemsnap .contant .flex .title span {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              color: #22C55E;
+              font-size: 12px;
+              font-weight: 500;
+              background: #22C55E1A;
+              border: 0.8px solid #22C55E4D;
+              padding: 0px 4px;
+              border-radius: 6px; }
+          .hero-section .itemsection .rowbox .itemsnap .contant .flex p {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #717182;
+            font-size: 12px;
+            line-height: 16px; }
+            .hero-section .itemsection .rowbox .itemsnap .contant .flex p svg {
+              min-width: 9px;
+              max-width: 9px;
+              height: 9px; }
+        .hero-section .itemsection .rowbox .itemsnap .contant .price {
+          color: #000;
+          font-size: 14px;
+          font-weight: 600; }
 .hero-section .item-coupouns .rowbox {
   grid-template-columns: repeat(3, 1fr); }
   @media (min-width: 1600px) {
@@ -1746,7 +1915,8 @@
     align-items: center;
     gap: 4px; }
 
-.counter-box {
+.counter-box,
+.comparebox {
   display: none;
   position: absolute;
   bottom: 20px;
@@ -1758,17 +1928,23 @@
   box-shadow: 0px 25px 50px -12px #00000040;
   cursor: pointer;
   z-index: 500; }
-  .counter-box .flex {
+  .counter-box .flex,
+  .comparebox .flex {
     position: relative;
     display: flex;
     align-items: center;
     gap: 12px; }
-    .counter-box .flex .title {
+    .counter-box .flex .title,
+    .comparebox .flex .title {
       color: #fff;
       font-size: 18px; }
-    .counter-box .flex p {
+    .counter-box .flex p,
+    .comparebox .flex p {
       color: #fff; }
-  .counter-box #counter {
+  .counter-box #counter,
+  .counter-box #coun,
+  .comparebox #counter,
+  .comparebox #coun {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1781,6 +1957,10 @@
     color: #FF5028;
     background: #fff;
     font-weight: 600; }
+
+.comparebox {
+  position: fixed;
+  bottom: 92px; }
 
 .storecard {
   min-width: 276px;
