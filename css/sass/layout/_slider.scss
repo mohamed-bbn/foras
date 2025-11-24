@@ -216,6 +216,49 @@
     }
     .itemsection {
         overflow: hidden;
+        .formsearch {
+            position: relative;
+            display: flex;
+            align-items: center;
+            width: 400px;
+            height: 44px;
+            margin: $zero;
+            @media (min-width: 1600px) {
+                width: 630px;
+            }
+            @media (max-width: 1199px) {
+                width: 260px;
+            }
+            @media (max-width: 999px) {
+                width: $fullwidth;
+            }
+            .form-control {
+                width: $fullwidth;
+                height: $fullwidth;
+                border-radius: 30px;
+                box-shadow: $none;
+                outline: $none;
+                background: $white;
+                text-transform: $none;
+                padding-right: $com-spacing-8;
+                @media (max-width: 999px) {}
+            }
+            .btnsearch {
+                @include position(absolute,
+                $top: $com-spacing-1, $right: $com-spacing-2);
+                background: $none;
+                outline: $none;
+                outline-style: $none;
+                border: $zero;
+                cursor: pointer;
+                svg {
+                    width: 24px;
+                    height: 24px;
+                    fill: $orange;
+                    @include transition(all 0.5s ease-in-out 0s);
+                }
+            }
+        }
         .rowfilter {
             display: flex;
             align-items: center;
@@ -223,49 +266,6 @@
             flex-wrap: wrap;
             gap: $com-spacing-3;
             margin-bottom: $com-spacing-6;
-            .formsearch {
-                position: relative;
-                display: flex;
-                align-items: center;
-                width: 400px;
-                height: 44px;
-                margin: $zero;
-                @media (min-width: 1600px) {
-                    width: 630px;
-                }
-                @media (max-width: 1199px) {
-                    width: 260px;
-                }
-                @media (max-width: 999px) {
-                    width: $fullwidth;
-                }
-                .form-control {
-                    width: $fullwidth;
-                    height: $fullwidth;
-                    border-radius: 30px;
-                    box-shadow: $none;
-                    outline: $none;
-                    background: $white;
-                    text-transform: $none;
-                    padding-right: $com-spacing-8;
-                    @media (max-width: 999px) {}
-                }
-                .btnsearch {
-                    @include position(absolute,
-                    $top: $com-spacing-1, $right: $com-spacing-2);
-                    background: $none;
-                    outline: $none;
-                    outline-style: $none;
-                    border: $zero;
-                    cursor: pointer;
-                    svg {
-                        width: 24px;
-                        height: 24px;
-                        fill: $orange;
-                        @include transition(all 0.5s ease-in-out 0s);
-                    }
-                }
-            }
             .flex {
                 display: flex;
                 align-items: center;
@@ -1190,128 +1190,129 @@
                 .title {
                     font-size: 24px;
                 }
-                .comparisonlist {
-                    display: flex;
-                    gap: $com-spacing-2;
-                    width: $fullwidth;
-                    border: 1px solid #0000001A;
-                    border-radius: 10px;
-                    margin-top: $com-spacing-3;
-                    .barproduct {
-                        min-width: 165px;
-                        max-width: 165px;
-                        border-right: 1px solid #0000001A;
-                        @media (max-width: 999px) {
-                            display: none;
-                        }
-                        li {
-                            padding: $com-spacing-3 $zero;
-                            border-bottom: 1px solid #0000001A;
-                            text-align: center;
-                            text-transform: capitalize;
-                            &:first-child {
-                                @include flex;
-                                height: 205px;
-                            }
-                        }
+            }
+        }
+    }
+}
+
+.comparisonlist {
+    display: flex;
+    gap: $com-spacing-2;
+    width: $fullwidth;
+    border: 1px solid #0000001A;
+    border-radius: 10px;
+    margin-top: $com-spacing-3;
+    .barproduct {
+        min-width: 165px;
+        max-width: 165px;
+        border-right: 1px solid #0000001A;
+        @media (max-width: 999px) {
+            display: none;
+        }
+        li {
+            padding: $com-spacing-3 $zero;
+            border-bottom: 1px solid #0000001A;
+            text-align: center;
+            text-transform: capitalize;
+            &:first-child {
+                @include flex;
+                height: 205px;
+            }
+        }
+    }
+    .scroll-box-wrapper {
+        position: relative;
+        left: auto;
+        bottom: auto;
+        overflow: hidden;
+    }
+    .compitem {
+        position: relative;
+        min-width: 236px;
+        max-width: 236px;
+        border: 1px solid #0000001A;
+        border-radius: 10px;
+        padding: $com-spacing-3;
+        .remov-btn {
+            @include flex;
+            position: absolute;
+            right: $com-spacing-6;
+            top: $com-spacing-3;
+            width: 26px;
+            height: 26px;
+            cursor: pointer;
+            background: $white;
+            font-size: 20px;
+            color: $red;
+            border-radius: 60px;
+            box-shadow: 0px 0.92px 7.4px 0px #00000033;
+            z-index: 1;
+        }
+        .photo {
+            position: relative;
+            display: block;
+            margin: $zero $auto;
+            width: 130px;
+            height: 130px;
+            background: #F6EFD9;
+            border-radius: 8px;
+            border: 1px solid #CBCBCB;
+            overflow: hidden;
+            @media (max-width: 999px) {}
+            img {
+                width: $fullwidth;
+                height: $fullwidth;
+                object-fit: cover;
+            }
+        }
+        .title {
+            display: block;
+            font-size: 22px;
+            font-weight: 500;
+            text-align: center;
+            margin-top: $com-spacing-2;
+        }
+        a.title:hover {
+            color: $orange;
+        }
+        .price {
+            color: #ED2527;
+            font-size: 20px;
+            font-weight: 600;
+            text-align: center;
+            margin-top: $com-spacing-2;
+        }
+        .info {
+            border-top: 1px solid #0000001A;
+            margin-top: $com-spacing-6;
+            li {
+                display: flex;
+                align-items: center;
+                gap: $com-spacing-2;
+                padding: $com-spacing-2 $zero;
+                border-bottom: 1px solid #0000001A;
+                .logo {
+                    border-radius: 50%;
+                    border: 1px solid #F1F1F1;
+                    min-width: 40px;
+                    height: 40px;
+                    overflow: hidden;
+                    img {
+                        width: $fullwidth;
+                        height: $fullwidth;
+                        object-fit: cover;
                     }
-                    .scroll-box-wrapper {
-                        position: relative;
-                        left: auto;
-                        bottom: auto;
-                        overflow: hidden;
-                    }
-                    .compitem {
-                        position: relative;
-                        min-width: 236px;
-                        max-width: 236px;
-                        border: 1px solid #0000001A;
-                        border-radius: 10px;
-                        padding: $com-spacing-3;
-                        .remov-btn {
-                            @include flex;
-                            position: absolute;
-                            right: $com-spacing-6;
-                            top: $com-spacing-3;
-                            width: 26px;
-                            height: 26px;
-                            cursor: pointer;
-                            background: $white;
-                            font-size: 20px;
-                            color: $red;
-                            border-radius: 60px;
-                            box-shadow: 0px 0.92px 7.4px 0px #00000033;
-                            z-index: 1;
-                        }
-                        .photo {
-                            position: relative;
-                            display: block;
-                            margin: $zero $auto;
-                            width: 130px;
-                            height: 130px;
-                            background: #F6EFD9;
-                            border-radius: 8px;
-                            border: 1px solid #CBCBCB;
-                            overflow: hidden;
-                            @media (max-width: 999px) {}
-                            img {
-                                width: $fullwidth;
-                                height: $fullwidth;
-                                object-fit: cover;
-                            }
-                        }
-                        .title {
-                            display: block;
-                            font-size: 22px;
-                            font-weight: 500;
-                            text-align: center;
-                            margin-top: $com-spacing-2;
-                        }
-                        a.title:hover {
-                            color: $orange;
-                        }
-                        .price {
-                            color: #ED2527;
-                            font-size: 20px;
-                            font-weight: 600;
-                            text-align: center;
-                            margin-top: $com-spacing-2;
-                        }
-                        .info {
-                            border-top: 1px solid #0000001A;
-                            margin-top: $com-spacing-6;
-                            li {
-                                display: flex;
-                                align-items: center;
-                                gap: $com-spacing-2;
-                                padding: $com-spacing-2 $zero;
-                                border-bottom: 1px solid #0000001A;
-                                .logo {
-                                    border-radius: 50%;
-                                    border: 1px solid #F1F1F1;
-                                    min-width: 40px;
-                                    height: 40px;
-                                    overflow: hidden;
-                                    img {
-                                        width: $fullwidth;
-                                        height: $fullwidth;
-                                        object-fit: cover;
-                                    }
-                                }
-                                .title {
-                                    font-size: 14px;
-                                    text-align: $left;
-                                    margin: $zero;
-                                }
-                                .green {
-                                    display: block;
-                                    font-size: 10px;
-                                    line-height: 12px;
-                                    color: $green;
-                                }
-                            }
-                        }
-                    }
+                }
+                .title {
+                    font-size: 14px !important;
+                    text-align: $left;
+                    margin: $zero;
+                }
+                .green {
+                    display: block;
+                    font-size: 10px;
+                    line-height: 12px;
+                    color: $green;
                 }
             }
         }

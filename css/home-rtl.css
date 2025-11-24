@@ -306,7 +306,7 @@
     width: 88px;
     height: 44px;
     color: #000;
-    gap: 8px;
+    gap: 4px;
     border-radius: 12px;
     -moz-transition: all 0.5s ease-in-out 0s;
     -o-transition: all 0.5s ease-in-out 0s;
@@ -680,6 +680,48 @@
         color: #FF5028; }
 .hero-section .itemsection {
   overflow: hidden; }
+  .hero-section .itemsection .formsearch {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 400px;
+    height: 44px;
+    margin: 0px; }
+    @media (min-width: 1600px) {
+      .hero-section .itemsection .formsearch {
+        width: 630px; } }
+    @media (max-width: 1199px) {
+      .hero-section .itemsection .formsearch {
+        width: 260px; } }
+    @media (max-width: 999px) {
+      .hero-section .itemsection .formsearch {
+        width: 100%; } }
+    .hero-section .itemsection .formsearch .form-control {
+      width: 100%;
+      height: 100%;
+      border-radius: 30px;
+      box-shadow: none;
+      outline: none;
+      background: #fff;
+      text-transform: none;
+      padding-right: 48px; }
+    .hero-section .itemsection .formsearch .btnsearch {
+      position: absolute;
+      top: 4px;
+      right: 8px;
+      background: none;
+      outline: none;
+      outline-style: none;
+      border: 0px;
+      cursor: pointer; }
+      .hero-section .itemsection .formsearch .btnsearch svg {
+        width: 24px;
+        height: 24px;
+        fill: #FF5028;
+        -moz-transition: all 0.5s ease-in-out 0s;
+        -o-transition: all 0.5s ease-in-out 0s;
+        -webkit-transition: all 0.5s ease-in-out 0s;
+        transition: all 0.5s ease-in-out 0s; }
   .hero-section .itemsection .rowfilter {
     display: flex;
     align-items: center;
@@ -687,48 +729,6 @@
     flex-wrap: wrap;
     gap: 12px;
     margin-bottom: 24px; }
-    .hero-section .itemsection .rowfilter .formsearch {
-      position: relative;
-      display: flex;
-      align-items: center;
-      width: 400px;
-      height: 44px;
-      margin: 0px; }
-      @media (min-width: 1600px) {
-        .hero-section .itemsection .rowfilter .formsearch {
-          width: 630px; } }
-      @media (max-width: 1199px) {
-        .hero-section .itemsection .rowfilter .formsearch {
-          width: 260px; } }
-      @media (max-width: 999px) {
-        .hero-section .itemsection .rowfilter .formsearch {
-          width: 100%; } }
-      .hero-section .itemsection .rowfilter .formsearch .form-control {
-        width: 100%;
-        height: 100%;
-        border-radius: 30px;
-        box-shadow: none;
-        outline: none;
-        background: #fff;
-        text-transform: none;
-        padding-right: 48px; }
-      .hero-section .itemsection .rowfilter .formsearch .btnsearch {
-        position: absolute;
-        top: 4px;
-        right: 8px;
-        background: none;
-        outline: none;
-        outline-style: none;
-        border: 0px;
-        cursor: pointer; }
-        .hero-section .itemsection .rowfilter .formsearch .btnsearch svg {
-          width: 24px;
-          height: 24px;
-          fill: #FF5028;
-          -moz-transition: all 0.5s ease-in-out 0s;
-          -o-transition: all 0.5s ease-in-out 0s;
-          -webkit-transition: all 0.5s ease-in-out 0s;
-          transition: all 0.5s ease-in-out 0s; }
     .hero-section .itemsection .rowfilter .flex {
       display: flex;
       align-items: center;
@@ -1642,114 +1642,115 @@
           border-radius: 8px; }
       .mapitem .innercompare .innercontant .allcompare .title {
         font-size: 24px; }
-      .mapitem .innercompare .innercontant .allcompare .comparisonlist {
+
+.comparisonlist {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+  border: 1px solid #0000001A;
+  border-radius: 10px;
+  margin-top: 12px; }
+  .comparisonlist .barproduct {
+    min-width: 165px;
+    max-width: 165px;
+    border-right: 1px solid #0000001A; }
+    @media (max-width: 999px) {
+      .comparisonlist .barproduct {
+        display: none; } }
+    .comparisonlist .barproduct li {
+      padding: 12px 0px;
+      border-bottom: 1px solid #0000001A;
+      text-align: center;
+      text-transform: capitalize; }
+      .comparisonlist .barproduct li:first-child {
         display: flex;
-        gap: 8px;
+        align-items: center;
+        justify-content: center;
+        height: 205px; }
+  .comparisonlist .scroll-box-wrapper {
+    position: relative;
+    left: auto;
+    bottom: auto;
+    overflow: hidden; }
+  .comparisonlist .compitem {
+    position: relative;
+    min-width: 236px;
+    max-width: 236px;
+    border: 1px solid #0000001A;
+    border-radius: 10px;
+    padding: 12px; }
+    .comparisonlist .compitem .remov-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      right: 24px;
+      top: 12px;
+      width: 26px;
+      height: 26px;
+      cursor: pointer;
+      background: #fff;
+      font-size: 20px;
+      color: #BD3C2F;
+      border-radius: 60px;
+      box-shadow: 0px 0.92px 7.4px 0px #00000033;
+      z-index: 1; }
+    .comparisonlist .compitem .photo {
+      position: relative;
+      display: block;
+      margin: 0px auto;
+      width: 130px;
+      height: 130px;
+      background: #F6EFD9;
+      border-radius: 8px;
+      border: 1px solid #CBCBCB;
+      overflow: hidden; }
+      .comparisonlist .compitem .photo img {
         width: 100%;
-        border: 1px solid #0000001A;
-        border-radius: 10px;
-        margin-top: 12px; }
-        .mapitem .innercompare .innercontant .allcompare .comparisonlist .barproduct {
-          min-width: 165px;
-          max-width: 165px;
-          border-right: 1px solid #0000001A; }
-          @media (max-width: 999px) {
-            .mapitem .innercompare .innercontant .allcompare .comparisonlist .barproduct {
-              display: none; } }
-          .mapitem .innercompare .innercontant .allcompare .comparisonlist .barproduct li {
-            padding: 12px 0px;
-            border-bottom: 1px solid #0000001A;
-            text-align: center;
-            text-transform: capitalize; }
-            .mapitem .innercompare .innercontant .allcompare .comparisonlist .barproduct li:first-child {
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              height: 205px; }
-        .mapitem .innercompare .innercontant .allcompare .comparisonlist .scroll-box-wrapper {
-          position: relative;
-          left: auto;
-          bottom: auto;
+        height: 100%;
+        object-fit: cover; }
+    .comparisonlist .compitem .title {
+      display: block;
+      font-size: 22px;
+      font-weight: 500;
+      text-align: center;
+      margin-top: 8px; }
+    .comparisonlist .compitem a.title:hover {
+      color: #FF5028; }
+    .comparisonlist .compitem .price {
+      color: #ED2527;
+      font-size: 20px;
+      font-weight: 600;
+      text-align: center;
+      margin-top: 8px; }
+    .comparisonlist .compitem .info {
+      border-top: 1px solid #0000001A;
+      margin-top: 24px; }
+      .comparisonlist .compitem .info li {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 0px;
+        border-bottom: 1px solid #0000001A; }
+        .comparisonlist .compitem .info li .logo {
+          border-radius: 50%;
+          border: 1px solid #F1F1F1;
+          min-width: 40px;
+          height: 40px;
           overflow: hidden; }
-        .mapitem .innercompare .innercontant .allcompare .comparisonlist .compitem {
-          position: relative;
-          min-width: 236px;
-          max-width: 236px;
-          border: 1px solid #0000001A;
-          border-radius: 10px;
-          padding: 12px; }
-          .mapitem .innercompare .innercontant .allcompare .comparisonlist .compitem .remov-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: absolute;
-            right: 24px;
-            top: 12px;
-            width: 26px;
-            height: 26px;
-            cursor: pointer;
-            background: #fff;
-            font-size: 20px;
-            color: #BD3C2F;
-            border-radius: 60px;
-            box-shadow: 0px 0.92px 7.4px 0px #00000033;
-            z-index: 1; }
-          .mapitem .innercompare .innercontant .allcompare .comparisonlist .compitem .photo {
-            position: relative;
-            display: block;
-            margin: 0px auto;
-            width: 130px;
-            height: 130px;
-            background: #F6EFD9;
-            border-radius: 8px;
-            border: 1px solid #CBCBCB;
-            overflow: hidden; }
-            .mapitem .innercompare .innercontant .allcompare .comparisonlist .compitem .photo img {
-              width: 100%;
-              height: 100%;
-              object-fit: cover; }
-          .mapitem .innercompare .innercontant .allcompare .comparisonlist .compitem .title {
-            display: block;
-            font-size: 22px;
-            font-weight: 500;
-            text-align: center;
-            margin-top: 8px; }
-          .mapitem .innercompare .innercontant .allcompare .comparisonlist .compitem a.title:hover {
-            color: #FF5028; }
-          .mapitem .innercompare .innercontant .allcompare .comparisonlist .compitem .price {
-            color: #ED2527;
-            font-size: 20px;
-            font-weight: 600;
-            text-align: center;
-            margin-top: 8px; }
-          .mapitem .innercompare .innercontant .allcompare .comparisonlist .compitem .info {
-            border-top: 1px solid #0000001A;
-            margin-top: 24px; }
-            .mapitem .innercompare .innercontant .allcompare .comparisonlist .compitem .info li {
-              display: flex;
-              align-items: center;
-              gap: 8px;
-              padding: 8px 0px;
-              border-bottom: 1px solid #0000001A; }
-              .mapitem .innercompare .innercontant .allcompare .comparisonlist .compitem .info li .logo {
-                border-radius: 50%;
-                border: 1px solid #F1F1F1;
-                min-width: 40px;
-                height: 40px;
-                overflow: hidden; }
-                .mapitem .innercompare .innercontant .allcompare .comparisonlist .compitem .info li .logo img {
-                  width: 100%;
-                  height: 100%;
-                  object-fit: cover; }
-              .mapitem .innercompare .innercontant .allcompare .comparisonlist .compitem .info li .title {
-                font-size: 14px;
-                text-align: left;
-                margin: 0px; }
-              .mapitem .innercompare .innercontant .allcompare .comparisonlist .compitem .info li .green {
-                display: block;
-                font-size: 10px;
-                line-height: 12px;
-                color: #00A63E; }
+          .comparisonlist .compitem .info li .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; }
+        .comparisonlist .compitem .info li .title {
+          font-size: 14px !important;
+          text-align: left;
+          margin: 0px; }
+        .comparisonlist .compitem .info li .green {
+          display: block;
+          font-size: 10px;
+          line-height: 12px;
+          color: #00A63E; }
 
 .itemcard {
   min-width: 532px;
