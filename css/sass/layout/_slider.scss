@@ -213,6 +213,59 @@
                 }
             }
         }
+        .listcategory {
+            a {
+                display: flex;
+                align-items: center;
+                gap: $com-spacing-2;
+                border: 1px solid #E5DFD3;
+                background: #F6F1EA;
+                padding: $com-spacing-2 $com-spacing-3;
+                border-radius: 12px;
+                color: #6B6B6B;
+                font-size: 14px;
+                font-weight: 400;
+                margin-top: $com-spacing-3;
+                @include transition(all 0.5s ease-in-out 0s);
+                &:hover,
+                &.active {
+                    background: $blak;
+                    color: $white;
+                    border: 1px solid $blak;
+                    svg {
+                        path {
+                            stroke: $white;
+                        }
+                    }
+                }
+                svg {
+                    path {
+                        stroke: #6B6B6B;
+                        @include transition(all 0.5s ease-in-out 0s);
+                    }
+                }
+            }
+        }
+        .itemprice {
+            border: 1px solid #E5DFD3;
+            background: #F6F1EA;
+            padding: $com-spacing-3;
+            border-radius: 12px;
+            margin-top: $com-spacing-3;
+            li {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                small {
+                    text-transform: capitalize;
+                    color: #9B9B9B;
+                    font-size: 12px;
+                }
+                p {
+                    color: $blak;
+                }
+            }
+        }
     }
     .itemsection {
         overflow: hidden;
@@ -256,6 +309,15 @@
                     height: 24px;
                     fill: $orange;
                     @include transition(all 0.5s ease-in-out 0s);
+                }
+            }
+            &.lu-search {
+                width: $fullwidth;
+                margin-top: $com-spacing-6;
+                .form-control {
+                    background: #F6F1EA;
+                    border: 1px solid #E0DBD5;
+                    border-radius: 0.375rem;
                 }
             }
         }

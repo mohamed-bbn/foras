@@ -678,6 +678,50 @@
       transition: all 0.5s ease-in-out 0s; }
       .hero-section .sidebar .itemfilter .navlist a:hover {
         color: #FF5028; }
+  .hero-section .sidebar .listcategory a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid #E5DFD3;
+    background: #F6F1EA;
+    padding: 8px 12px;
+    border-radius: 12px;
+    color: #6B6B6B;
+    font-size: 14px;
+    font-weight: 400;
+    margin-top: 12px;
+    -moz-transition: all 0.5s ease-in-out 0s;
+    -o-transition: all 0.5s ease-in-out 0s;
+    -webkit-transition: all 0.5s ease-in-out 0s;
+    transition: all 0.5s ease-in-out 0s; }
+    .hero-section .sidebar .listcategory a:hover, .hero-section .sidebar .listcategory a.active {
+      background: #000;
+      color: #fff;
+      border: 1px solid #000; }
+      .hero-section .sidebar .listcategory a:hover svg path, .hero-section .sidebar .listcategory a.active svg path {
+        stroke: #fff; }
+    .hero-section .sidebar .listcategory a svg path {
+      stroke: #6B6B6B;
+      -moz-transition: all 0.5s ease-in-out 0s;
+      -o-transition: all 0.5s ease-in-out 0s;
+      -webkit-transition: all 0.5s ease-in-out 0s;
+      transition: all 0.5s ease-in-out 0s; }
+  .hero-section .sidebar .itemprice {
+    border: 1px solid #E5DFD3;
+    background: #F6F1EA;
+    padding: 12px;
+    border-radius: 12px;
+    margin-top: 12px; }
+    .hero-section .sidebar .itemprice li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between; }
+      .hero-section .sidebar .itemprice li small {
+        text-transform: capitalize;
+        color: #9B9B9B;
+        font-size: 12px; }
+      .hero-section .sidebar .itemprice li p {
+        color: #000; }
 .hero-section .itemsection {
   overflow: hidden; }
   .hero-section .itemsection .formsearch {
@@ -722,6 +766,13 @@
         -o-transition: all 0.5s ease-in-out 0s;
         -webkit-transition: all 0.5s ease-in-out 0s;
         transition: all 0.5s ease-in-out 0s; }
+    .hero-section .itemsection .formsearch.lu-search {
+      width: 100%;
+      margin-top: 24px; }
+      .hero-section .itemsection .formsearch.lu-search .form-control {
+        background: #F6F1EA;
+        border: 1px solid #E0DBD5;
+        border-radius: 0.375rem; }
   .hero-section .itemsection .rowfilter {
     display: flex;
     align-items: center;

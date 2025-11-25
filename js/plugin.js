@@ -98,7 +98,8 @@ $(window).on("load", function() {
     setActiveClass(".baroffers", "a");
     setActiveClass(".scroll-box-wrapper .listlinks", "a");
     setActiveClass(".listreale");
-
+    setActiveClass(".listcategory", "a");
+    setActiveClass(".listmenuuser", "a");
     /*----------------------------------------
       ACTIVE CLASS HANDLER
     ----------------------------------------*/
@@ -190,7 +191,7 @@ $(window).on("load", function() {
       HORIZONTAL SCROLL BOXES (with drag)
     ----------------------------------------*/
 
-    $(".iconfilter").on("click", function() {
+    $(".iconfilter,.iconuser").on("click", function() {
         toggleSidebar(true);
     });
 
@@ -199,7 +200,7 @@ $(window).on("load", function() {
     });
 
     function toggleSidebar(show) {
-        $(".sidebar, .overlaybox").toggleClass("active", show);
+        $(".sidebar, .overlaybox,.listmenuuser").toggleClass("active", show);
         $("body").toggleClass("no-scroll", show);
     }
 
@@ -690,5 +691,107 @@ $(window).on("load", function() {
         });
     });
 
+    $(function() {
+        let count = 0;
+
+        $(".compare-btn").on("click", function() {
+            $(this).toggleClass("active");
+
+            if ($(this).hasClass("active")) {
+                count++;
+            } else {
+                count--;
+                $(this).find(".active").removeClass("active");
+            }
+
+            $("#counter").text(count);
+            if (count > 0) {
+                $(".counter-box").fadeIn();
+            } else {
+                $(".counter-box").fadeOut();
+            }
+        });
+    });
+
+
+    $(document).on('click', '.counter-box', function() {
+        $('.popupcompare').fadeIn(300);
+    });
+
+    $(document).on('click', '.close-btn', function() {
+        $('.popupcompare').fadeOut(300);
+    });
+
+
+    $('#items-container').on('click', '.remov-btn', function() {
+        const item = $(this).parent();
+
+        if (confirm('Are you sure you want to delete this item?')) {
+            item.fadeOut(300, function() {
+                $(this).remove();
+            });
+        }
+    });
+
+    $('.clearall').click(function() {
+        if (confirm('Are you sure you want to delete all items?')) {
+            $('#items-container .compitem').fadeOut(300, function() {
+                $(this).remove();
+                $(".innercontant .alert").fadeOut(300);
+                $(".allcompare").fadeOut(300);
+            });
+        }
+    });
+
+    $(document).on('click', '.showstores', function() {
+        $('.hideoffer').fadeOut(300);
+        $('.hidestores').fadeIn(300);
+    });
+
+    $(document).on('click', '.showoffer', function() {
+        $('.hideoffer').fadeIn(300);
+        $('.hidestores').fadeOut(300);
+    });
+
+
+    /*----------------------------------------
+       COMPARISON POPUP
+     ----------------------------------------*/
+
+
+    $(".deleteitem").on("click", function() {
+        let item = $(this).closest(".subfavorite");
+        if (confirm("Are you sure you want to delete it?")) {
+
+            item.fadeOut(200, function() {
+                item.remove();
+                if ($(".subfavorite").length === 0) {
+                    $(".empty-message").fadeIn(300);
+                }
+            });
+        }
+    });
+
+    /*----------------------------------------
+       Delete Favorite
+     ----------------------------------------*/
+
 
 }); // END window.load
+
+
+
+function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function(e) {
+            $('.img_prev')
+                .attr('src', e.target.result);
+        };
+        reader.readAsDataURL(input.files[0]);
+    } else {
+        var img = input.value;
+        $('.img_prev').attr('src', img);
+    }
+}
