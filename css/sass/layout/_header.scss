@@ -534,3 +534,217 @@
         }
     }
 }
+
+.headermall {
+    position: relative;
+    width: $fullwidth;
+    padding: $com-spacing-4 $zero;
+    background: $white;
+    border-bottom: 1px solid #E5E7EB;
+    @include transition(all 0.5s ease-in-out 0s);
+    z-index: 1002;
+    &.sticky {
+        position: fixed;
+        top: $zero;
+        left: $zero;
+        padding: $com-spacing-3 $zero;
+        @include prefixer (box-shadow, 4px 4px 60px rgba(0, 0, 0, 0.1), webkit moz o ms);
+        @include transition(all 0.5s ease-in-out 0s);
+    }
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .flex {
+        display: flex;
+        gap: $com-spacing-3;
+        .innerflex {
+            display: flex;
+            align-items: center;
+            gap: $com-spacing-3;
+            .icon {
+                @include flex;
+                min-width: 40px;
+                max-width: 40px;
+                height: 40px;
+                background: $orange;
+                border-radius: 10px;
+            }
+            .title {
+                font-size: 20px;
+            }
+            p {
+                color: #6A7282;
+                font-size: 14px;
+                font-weight: 400;
+            }
+        }
+    }
+    .formsearch {
+        position: relative;
+        display: flex;
+        align-items: center;
+        width: 500px;
+        height: 44px;
+        margin: $zero;
+        @media (min-width: 1600px) {
+            width: 700px;
+        }
+        @media (max-width: 999px) {
+            display: none;
+        }
+        .form-control {
+            width: $fullwidth;
+            height: $fullwidth;
+            border-radius: 10px;
+            box-shadow: $none;
+            outline: $none;
+            background: $white;
+            text-transform: $none;
+            padding-right: 110px;
+            padding-left: 36px;
+            @media (max-width: 999px) {}
+        }
+        .icon {
+            @include position(absolute, $top: 6px, $left: $com-spacing-3);
+            background: $none;
+            outline: $none;
+            outline-style: $none;
+            border: $zero;
+            cursor: pointer;
+            svg {
+                width: 20px;
+                height: 20px;
+                fill: #888786;
+            }
+        }
+        .bottom {
+            @include position(absolute, $top: $com-spacing-1, $right: 6px);
+            border-radius: 10px;
+            height: 36px;
+            max-width: 100px;
+        }
+    }
+    .actions {
+        display: flex;
+        align-items: center;
+        gap: $com-spacing-3;
+        @media (max-width: 999px) {}
+    }
+    .language,
+    .login {
+        position: relative;
+        @include flex;
+        border: 1px solid #F6EFD9;
+        width: 88px;
+        height: 44px;
+        color: $blak;
+        gap: $com-spacing-1;
+        border-radius: 12px;
+        @include transition(all 0.5s ease-in-out 0s);
+        &:hover {
+            border: 1px solid $orange;
+            background: $orange;
+            color: $white;
+            svg {
+                fill: $white;
+            }
+        }
+        @media (max-width: 999px) {}
+        svg {
+            min-width: 20px;
+            max-width: 20px;
+            height: 20px;
+            fill: $orange;
+            @include transition(all 0.5s ease-in-out 0s);
+        }
+    }
+    .login {
+        border: 1px solid $orange;
+        background: $orange;
+        color: $white;
+        svg {
+            fill: $white;
+        }
+    }
+    .btncart {
+        position: relative;
+        cursor: pointer;
+        .number {
+            position: absolute;
+            top: -6px;
+            right: $zero;
+            @include flex;
+            width: 16px;
+            height: 16px;
+            background: $orange;
+            color: $white;
+            border-radius: 50%;
+            font-size: 12px;
+        }
+    }
+    .dropdown {
+        .dropdown-toggle {
+            display: flex;
+            align-items: center;
+            border-radius: $zero;
+            padding: $zero;
+            background: none;
+            border: $zero;
+            gap: $com-spacing-2;
+            @media (max-width: 999px) {}
+            &::after {
+                border-top: .3em solid $blak;
+                margin: $zero;
+            }
+            img {
+                width: 30px;
+                height: 30px;
+                background: $ofwhite;
+                border-radius: 50%;
+            }
+            p {
+                max-width: 92px;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                color: $blak;
+                @media (max-width: 999px) {
+                    display: none;
+                }
+            }
+        }
+        .dropdown-menu {
+            border-top: 1px solid #0000001A;
+            box-shadow: 0px 4px 6px -1px #0000001A;
+            width: 220px;
+            padding: $zero;
+            li {
+                &:first-child {
+                    padding: $com-spacing-2 $com-spacing-4;
+                    border-bottom: 1px solid #0000001A;
+                }
+                &:last-child {
+                    border-top: 1px solid #0000001A;
+                }
+                a {
+                    display: flex;
+                    align-items: center;
+                    gap: $com-spacing-1;
+                    padding: $com-spacing-2 $com-spacing-4;
+                    background: $none !important;
+                    color: $blak;
+                    cursor: pointer;
+                    &:hover {
+                        color: $orange;
+                    }
+                    svg {
+                        width: 16px;
+                        height: 16px;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -10,6 +10,17 @@ $(window).on("load", function() {
         }
     });
 
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > 1) {
+            $('.headermall').addClass("sticky");
+        } else {
+            if ($(this).scrollTop() < 1) {
+                $('.headermall').removeClass("sticky");
+            }
+        }
+    });
+
+
     /*----------------------------------------
       HEADER STICKY ON SCROLL
     ----------------------------------------*/
@@ -100,6 +111,8 @@ $(window).on("load", function() {
     setActiveClass(".listreale");
     setActiveClass(".listcategory", "a");
     setActiveClass(".listmenuuser", "a");
+    setActiveClass(".mallproducts", ".minhead .flex a");
+
     /*----------------------------------------
       ACTIVE CLASS HANDLER
     ----------------------------------------*/
