@@ -375,6 +375,10 @@
         svg {
             fill: $white;
         }
+        &:hover {
+            background: $dark;
+            border: 1px solid $dark;
+        }
     }
     .btncart {
         position: relative;
@@ -666,6 +670,10 @@
         color: $white;
         svg {
             fill: $white;
+        }
+        &:hover {
+            background: $dark;
+            border: 1px solid $dark;
         }
     }
     .btncart {

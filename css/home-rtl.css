@@ -341,6 +341,9 @@
     color: #fff; }
     .header .login svg {
       fill: #fff; }
+    .header .login:hover {
+      background: #e1401b;
+      border: 1px solid #e1401b; }
   .header .btncart {
     position: relative;
     margin-inline-start: 12px;
@@ -617,6 +620,9 @@
     color: #fff; }
     .headermall .login svg {
       fill: #fff; }
+    .headermall .login:hover {
+      background: #e1401b;
+      border: 1px solid #e1401b; }
   .headermall .btncart {
     position: relative;
     cursor: pointer; }
