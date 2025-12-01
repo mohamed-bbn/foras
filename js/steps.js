@@ -98,18 +98,62 @@ $(function() {
         });
     });
 });
-$(function() {
-    // Delete the item
-    $(document).on('click', '.remove-btn', function() {
-        $(this).closest('.address-row').remove();
-    });
 
-    //Add a new item
-    $('.add-btn').on('click', function() {
-        const newRow = `<div class="address-row"><a class="remove-btn">delete</a> <div class="row"> <div class="col-sm-12 field"> <label for="">Store Name <em>*</em></label> <input class="form-control req" type="text" placeholder="Enter street address" onfocus="this.placeholder=''" onblur="this.placeholder='Enter street address'"> <div class="error">This field is required</div> </div> <!-- End field --> <div class="col-sm-6 field"> <label for="">City <em>*</em></label> <input class="form-control req" type="text" placeholder="e.g., Doha" onfocus="this.placeholder=''" onblur="this.placeholder='e.g., Doha'"> <div class="error">This field is required</div> </div> <!-- End field --> <div class="col-sm-6 field"> <label for="">Area <em>*</em></label> <input class="form-control req" type="text" placeholder="e.g., West Bay" onfocus="this.placeholder=''" onblur="this.placeholder='e.g., West Bay'"> <div class="error">This field is required</div> </div> <!-- End field --> <div class="col-sm-6 field"> <label for="">Building Number</label> <input class="form-control" type="text" placeholder="Building number" onfocus="this.placeholder=''" onblur="this.placeholder='Building number'"> </div> <!-- End field --> <div class="col-sm-6 field"> <label for="">Nearby Landmark</label> <input class="form-control" type="text" placeholder="e.g., Near City Center Mall" onfocus="this.placeholder=''" onblur="this.placeholder='e.g., Near City Center Mall'"> </div> <!-- End field --> <div class="col-sm-12 field"> <label for="">Google Maps Link (Optional)</label> <input class="form-control" type="text" placeholder="Paste Google Maps link here" onfocus="this.placeholder=''" onblur="this.placeholder='Paste Google Maps link here'"> </div> <!-- End field --> </div> <!-- End row --> </div>`;
-        $('.address-container').append(newRow);
-    });
+
+
+
+function updateNoAddress() {
+    const count = $('#outputaddress .item-box').length;
+    if (count === 0) {
+        $('#no-address').show();
+    } else {
+        $('#no-address').hide();
+    }
+}
+updateNoAddress();
+
+$('#addBtnaddress').click(function() {
+    var street = $('#street').val().trim();
+    var city = $('#city').val().trim();
+    var area = $('#area').val().trim();
+    var building = $('#building').val().trim();
+    var nearby = $('#nearby').val().trim();
+
+    if (street || city || area || building || nearby) {
+        var box = $(`
+            <div class="item-box">
+                <span class="btndelete">&times;</span>
+                <h4 class="title">${street}</h4>
+                <p class="text"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M20 10C20 14.993 14.461 20.193 12.601 21.799C12.4277 21.9293 12.2168 21.9998 12 21.9998C11.7832 21.9998 11.5723 21.9293 11.399 21.799C9.539 20.193 4 14.993 4 10C4 7.87827 4.84285 5.84344 6.34315 4.34315C7.84344 2.84285 9.87827 2 12 2C14.1217 2 16.1566 2.84285 17.6569 4.34315C19.1571 5.84344 20 7.87827 20 10Z" stroke="#727272" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M12 13C13.6569 13 15 11.6569 15 10C15 8.34315 13.6569 7 12 7C10.3431 7 9 8.34315 9 10C9 11.6569 10.3431 13 12 13Z" stroke="#727272" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </svg>${city}</p>
+                <p class="text"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M20 10C20 14.993 14.461 20.193 12.601 21.799C12.4277 21.9293 12.2168 21.9998 12 21.9998C11.7832 21.9998 11.5723 21.9293 11.399 21.799C9.539 20.193 4 14.993 4 10C4 7.87827 4.84285 5.84344 6.34315 4.34315C7.84344 2.84285 9.87827 2 12 2C14.1217 2 16.1566 2.84285 17.6569 4.34315C19.1571 5.84344 20 7.87827 20 10Z" stroke="#727272" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M12 13C13.6569 13 15 11.6569 15 10C15 8.34315 13.6569 7 12 7C10.3431 7 9 8.34315 9 10C9 11.6569 10.3431 13 12 13Z" stroke="#727272" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </svg>${area}</p>
+                <p class="text"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M20 10C20 14.993 14.461 20.193 12.601 21.799C12.4277 21.9293 12.2168 21.9998 12 21.9998C11.7832 21.9998 11.5723 21.9293 11.399 21.799C9.539 20.193 4 14.993 4 10C4 7.87827 4.84285 5.84344 6.34315 4.34315C7.84344 2.84285 9.87827 2 12 2C14.1217 2 16.1566 2.84285 17.6569 4.34315C19.1571 5.84344 20 7.87827 20 10Z" stroke="#727272" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M12 13C13.6569 13 15 11.6569 15 10C15 8.34315 13.6569 7 12 7C10.3431 7 9 8.34315 9 10C9 11.6569 10.3431 13 12 13Z" stroke="#727272" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </svg>${building}</p>
+                <p class="text"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M20 10C20 14.993 14.461 20.193 12.601 21.799C12.4277 21.9293 12.2168 21.9998 12 21.9998C11.7832 21.9998 11.5723 21.9293 11.399 21.799C9.539 20.193 4 14.993 4 10C4 7.87827 4.84285 5.84344 6.34315 4.34315C7.84344 2.84285 9.87827 2 12 2C14.1217 2 16.1566 2.84285 17.6569 4.34315C19.1571 5.84344 20 7.87827 20 10Z" stroke="#727272" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M12 13C13.6569 13 15 11.6569 15 10C15 8.34315 13.6569 7 12 7C10.3431 7 9 8.34315 9 10C9 11.6569 10.3431 13 12 13Z" stroke="#727272" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </svg>${nearby}</p>
+             </div>
+        `);
+
+        $('#outputaddress').append(box);
+        updateNoAddress();
+
+        // Clear fields after adding
+        $('#street').val('');
+        $('#city').val('');
+        $('#area').val('');
+        $('#building').val('');
+        $('#nearby').val('');
+
+        box.find('.btndelete').click(function() {
+            if (confirm('Are you sure you want to delete this address?')) {
+                box.remove();
+                updateNoAddress();
+            }
+        });
+    } else {
+        alert('Please fill in at least one of the fields.');
+    }
 });
+
+
+
 
 $('#photo').change(function() {
     var file = this.files[0];
