@@ -1490,74 +1490,6 @@
                      padding-left: .75rem;
                  }
              }
-             .upload-box {
-                 @include flex;
-                 width: $fullwidth;
-                 min-height: 160px;
-                 border: 1px solid #dee2e6;
-                 border-radius: 14px;
-                 flex-direction: column;
-                 position: relative;
-                 background: $white;
-                 cursor: pointer;
-                 overflow: hidden;
-                 transition: 0.3s;
-                 padding: $com-spacing-4;
-                 input[type="file"] {
-                     position: absolute;
-                     top: $zero;
-                     left: $zero;
-                     width: $fullwidth;
-                     height: $fullwidth;
-                     opacity: 0;
-                     cursor: pointer;
-                     z-index: 2;
-                 }
-                 span {
-                     text-align: center;
-                     pointer-events: none;
-                     z-index: 1;
-                     b,
-                     small {
-                         display: block;
-                         text-align: center;
-                     }
-                     b {
-                         margin-top: $com-spacing-1;
-                         color: $blak;
-                         font-weight: 600;
-                     }
-                 }
-                 .img {
-                     position: relative;
-                 }
-                 img {
-                     width: $fullwidth;
-                     height: $fullwidth;
-                     object-fit: cover;
-                     width: 200px;
-                     height: 200px;
-                     display: none;
-                     border-radius: 16px;
-                     z-index: 1;
-                 }
-                 .delete {
-                     position: absolute;
-                     top: 5px;
-                     right: 5px;
-                     background: $red;
-                     color: $white;
-                     border: none;
-                     border-radius: 50%;
-                     width: 25px;
-                     height: 25px;
-                     cursor: pointer;
-                     display: none;
-                     z-index: 3;
-                     text-align: center;
-                     font-size: 12px;
-                 }
-             }
              .error {
                  color: $red;
                  font-size: 14px;
@@ -1664,42 +1596,6 @@
          svg {
              rotate: 180deg;
          }
-     }
-     .offers-container {
-         background: #FFF9F5;
-         border: 1px solid #E0DBD5;
-         padding: $com-spacing-6;
-         border-radius: 20px;
-         margin-top: $com-spacing-6;
-         @media (max-width: 999px) {
-             padding: $com-spacing-3;
-         }
-         .field {
-             .form-control {
-                 padding-left: .75rem;
-             }
-             .bottom {
-                 width: auto;
-                 gap: $com-spacing-2;
-                 box-shadow: none;
-             }
-         }
-     }
-     #no-items,
-     #no-address {
-         text-align: center;
-         margin-top: $com-spacing-6;
-         svg {
-             margin-bottom: $com-spacing-3;
-         }
-     }
-     .titleoffers {
-         display: flex;
-         align-items: center;
-         gap: $com-spacing-2;
-         color: $blak;
-         font-size: 16px;
-         margin-top: $com-spacing-6;
      }
      .information {
          width: $fullwidth;
@@ -1837,9 +1733,12 @@
              color: #15803D;
          }
      }
+     #fileInput {
+         display: none;
+     }
  }
  
- #output,
+ #itemsList,
  #outputaddress {
      display: grid;
      grid-template-columns: repeat(2, 1fr);
@@ -1859,18 +1758,30 @@
          @media (max-width: 676px) {
              display: block;
          }
-         .btndelete {
-             @include flex;
+         .btnaction {
+             display: flex;
+             align-items: center;
+             gap: $com-spacing-2;
              position: absolute;
              right: $com-spacing-4;
              top: $com-spacing-4;
-             width: 28px;
-             height: 28px;
+             z-index: 10;
+         }
+         .deleteBtn,
+         .editBtn,
+         .edit-btn,
+         .del-btn {
+             @include flex;
+             width: 32px;
+             height: 32px;
              border-radius: 50%;
              background: #FFEEEE;
              color: #FF5028;
              cursor: pointer;
-             z-index: 10;
+         }
+         .editBtn,
+         .edit-btn {
+             background: #F6F1EA;
          }
          .photo {
              min-width: 160px;
@@ -1889,7 +1800,7 @@
          }
          .title {
              font-size: 18px;
-             padding-inline-end: $com-spacing-7;
+             width: 80%;
          }
          .grocery {
              display: inline-flex;
@@ -1936,6 +1847,52 @@
      .item-box {
          display: block;
      }
+ }
+ 
+ #noItems,
+ #no-address {
+     text-align: center;
+     margin-top: $com-spacing-6;
+     svg {
+         margin-bottom: $com-spacing-3;
+     }
+ }
+ 
+ .offers-container {
+     background: #FFF9F5;
+     border: 1px solid #E0DBD5;
+     padding: $com-spacing-6;
+     border-radius: 20px;
+     margin-top: $com-spacing-6;
+     @media (max-width: 999px) {
+         padding: $com-spacing-3;
+     }
+     .field {
+         .form-control {
+             padding-left: .75rem;
+         }
+         .bottom {
+             width: auto;
+             gap: $com-spacing-2;
+             box-shadow: none;
+         }
+         &.flex {
+             justify-content: flex-start;
+             gap: $com-spacing-2;
+             a {
+                 cursor: pointer;
+             }
+         }
+     }
+ }
+ 
+ .titleoffers {
+     display: flex;
+     align-items: center;
+     gap: $com-spacing-2;
+     color: $blak;
+     font-size: 16px;
+     margin-top: $com-spacing-6;
  }
  
  .dashboard {
@@ -2175,6 +2132,11 @@
                  color: $blak;
                  cursor: pointer;
              }
+             //  .bottom {
+             //      gap: $com-spacing-1;
+             //      border-radius: 10px;
+             //      padding: $com-spacing-2 $com-spacing-3;
+             //  }
          }
          .title {
              font-size: 18px;
@@ -2228,4 +2190,181 @@
              }
          }
      }
+     .field {
+         .form-control {
+             padding-left: .75rem;
+             background: #F6F1EA;
+         }
+         select.form-control {
+             background: #F6F1EA url(../images/arrow.svg) right 12px center no-repeat !important;
+         }
+     }
+     .address-container {
+         background: #FFF9F5;
+         border: 1px solid $orange;
+         padding: $com-spacing-4;
+         border-radius: 12px;
+         margin-top: $com-spacing-4;
+         @media (max-width: 999px) {
+             padding: $com-spacing-3;
+             margin-top: $com-spacing-3;
+         }
+         .field {
+             margin: $zero;
+             margin-bottom: $com-spacing-4;
+             &:last-child {
+                 margin: $zero;
+             }
+             .form-control {
+                 background: $white;
+             }
+             select.form-control {
+                 background: $white url(../images/arrow.svg) right 12px center no-repeat !important;
+             }
+         }
+         .flex {
+             justify-content: flex-start;
+             gap: $com-spacing-3;
+             .bottom {
+                 width: auto;
+                 min-width: 92px;
+                 height: 40px;
+                 box-shadow: none;
+                 border-radius: 8px;
+                 gap: $com-spacing-1;
+                 padding: $com-spacing-2 $com-spacing-5;
+             }
+             .cancel {
+                 @include flex;
+                 min-width: 92px;
+                 height: 40px;
+                 border-radius: 8px;
+                 padding: $com-spacing-2 $com-spacing-5;
+                 background: #F6F1EA;
+                 cursor: pointer;
+             }
+         }
+     }
+     .offers-container {
+         background: $white;
+         border: 1x solid $orange;
+         .field {
+             margin: $zero;
+             margin-bottom: $com-spacing-4;
+             &:last-child {
+                 margin: $zero;
+             }
+             .form-control {
+                 background: $white;
+             }
+             select.form-control {
+                 background: $white url(../images/arrow.svg) right 12px center no-repeat !important;
+             }
+         }
+     }
+ }
+ 
+ .upload-box,
+ .uploadlogo {
+     @include flex;
+     text-align: center;
+     width: $fullwidth;
+     min-height: 160px;
+     border: 1px solid #dee2e6;
+     border-radius: 14px;
+     flex-direction: column;
+     position: relative;
+     background: $white;
+     cursor: pointer;
+     overflow: hidden;
+     transition: 0.3s;
+     padding: $com-spacing-4;
+     input[type="file"] {
+         position: absolute;
+         top: $zero;
+         left: $zero;
+         width: $fullwidth;
+         height: $fullwidth;
+         opacity: 0;
+         cursor: pointer;
+         z-index: 2;
+     }
+     span {
+         text-align: center;
+         pointer-events: none;
+         z-index: 1;
+         b,
+         small {
+             display: block;
+             text-align: center;
+         }
+         b {
+             margin-top: $com-spacing-1;
+             color: $blak;
+             font-weight: 600;
+         }
+     }
+     .img {
+         position: relative;
+         img {
+             width: $fullwidth;
+             height: $fullwidth;
+             object-fit: cover;
+             width: 200px;
+             height: 200px;
+             display: none;
+             border-radius: 16px;
+             z-index: 1;
+         }
+     }
+     .preview {
+         width: 200px;
+         height: 200px;
+         border-radius: 16px;
+         overflow: hidden;
+         background: $ofwhite;
+         display: none;
+         margin-top: $com-spacing-3;
+         position: relative;
+         img {
+             width: $fullwidth;
+             height: $fullwidth;
+             object-fit: cover;
+         }
+     }
+     .delete,
+     .remove-img {
+         position: absolute;
+         top: 5px;
+         right: 5px;
+         background: $red;
+         color: $white;
+         border: none;
+         border-radius: 50%;
+         width: 25px;
+         height: 25px;
+         cursor: pointer;
+         display: none;
+         z-index: 3;
+         text-align: center;
+         font-size: 12px;
+     }
+     .remove-img {
+         display: block;
+     }
+ }
+ 
+ .bottom.btn-update {
+     display: none;
+ }
+ 
+ .btn-cancel {
+     display: none;
+     min-width: 92px;
+     height: 48px;
+     text-transform: capitalize;
+     border-radius: 14px;
+     padding: $com-spacing-2 $com-spacing-5;
+     background: #F6F1EA;
+     cursor: pointer;
  }
