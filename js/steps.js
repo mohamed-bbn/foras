@@ -126,25 +126,31 @@ $('#addBtnaddress').click(function() {
     var nearby = $('#nearby').val().trim();
 
     // Prevent adding empty address
-    if (!street && !city && !area && !building && !nearby) {
-        alert("Please fill at least one field.");
+
+    if (!street || !city || !area || !building || !nearby) {
+        alert("Please fill all fields before saving.");
         return;
     }
 
     // If edit mode → update the existing box
-    if (editMode && currentBox) {
+    if (editMode) {
         currentBox.find('.street').text(street);
         currentBox.find('.city').text(city);
         currentBox.find('.area').text(area);
         currentBox.find('.building').text(building);
         currentBox.find('.nearby').text(nearby);
 
-        // Reset edit mode
+        // 🔥 أهم جزء — إيقاف وضع التعديل
         editMode = false;
         currentBox = null;
+
+        // 🔥 إخفاء زرار Cancel
+        $('#cancelEdit').hide();
+
+        // 🔥 رجوع زر Add لحالته
         $('#addBtnaddress').text("Add Address");
 
-        // Clear inputs
+        // مسح الحقول
         $('#street, #city, #area, #building, #nearby').val("");
 
         return;
@@ -191,22 +197,38 @@ $('#addBtnaddress').click(function() {
 // =========================
 // Edit Button
 // =========================
-$(document).on('click', '.editBtn', function() {
-    // Get the selected box
-    currentBox = $(this).closest('.item-box');
 
-    // Fill input fields with existing data
+$(document).on('click', '.editBtn', function() {
+
+    currentBox = $(this).closest('.item-box');
     $('#street').val(currentBox.find('.street').text());
     $('#city').val(currentBox.find('.city').text());
     $('#area').val(currentBox.find('.area').text());
     $('#building').val(currentBox.find('.building').text());
     $('#nearby').val(currentBox.find('.nearby').text());
 
-    // Switch to edit mode
+    // تشغيل وضع التعديل
     editMode = true;
-    $('#addBtnaddress').text("Save Changes");
+
+    // تغيير الأزرار
+    $('#addBtnaddress').text("Update Address");
+    $('#cancelEdit').show();
 });
 
+
+$('#cancelEdit').click(function() {
+
+    // رجوع للوضع العادي
+    editMode = false;
+    currentBox = null;
+
+    // مسح الحقول
+    $('#street, #city, #area, #building, #nearby').val("");
+
+    // إعادة الأزرار لحالتها
+    $('#addBtnaddress').text("Add Address");
+    $('#cancelEdit').hide();
+});
 
 // =========================
 // Delete Button (with Confirm)
@@ -261,9 +283,9 @@ function applyItem(data, item = null) {
         item.find(".item-name").text(data.productname);
         item.find(".item-category").text(data.category);
         item.find(".item-validuntil").text(data.validuntil);
-        item.find(".item-original").text("Original: " + data.original);
-        item.find(".item-discounted").text("Discounted: " + data.discounted);
-        item.find(".item-discount").text("Discount: " + data.discount);
+        item.find(".item-original").text(`${data.original} QAR`);
+        item.find(".item-discounted").text(`${data.discounted} QAR`);
+        item.find(".item-discount").text(`${data.discount} %`);
         item.find(".item-description").text(data.description || "");
         item.find("img").attr("src", data.img);
         item.find(".stored-productname").val(data.productname);
@@ -274,6 +296,10 @@ function applyItem(data, item = null) {
         item.find(".stored-discount").val(data.discount);
         item.find(".stored-description").val(data.description || "");
         item.find(".stored-img").val(data.img);
+
+
+
+
     } else { // Add new
         let id = Date.now();
         $("#itemsList").prepend(`
@@ -284,12 +310,11 @@ function applyItem(data, item = null) {
                     <p class="grocery item-category">${data.category}</p>
                     <p class="text item-validuntil">${data.validuntil}</p>
                     <div class="price">
-                        <p class="oldprice item-original"> ${data.original}</p>
-                        <p class="newprice item-discounted">${data.discounted}</p>
+                        <p class="oldprice item-original"> ${data.original} QAR</p>
+                        <p class="newprice item-discounted">${data.discounted} QAR</p>
                         <p class="discount item-discount">${data.discount} %</p>
                     </div>
                     <p class="item-description">${data.description || ""}</p>
-
                 </div>
                  <nav class="btnaction">
                     <a class="edit-btn" title="Edit">
@@ -435,9 +460,9 @@ $("#cancelBtn").click(() => {
         editingItem.find(".item-name").text(o.productname);
         editingItem.find(".item-category").text(o.category);
         editingItem.find(".item-validuntil").text(o.validuntil);
-        editingItem.find(".item-original").text("Original: " + o.original);
-        editingItem.find(".item-discounted").text("Discounted: " + o.discounted);
-        editingItem.find(".item-discount").text("Discount: " + o.discount);
+        editingItem.find(".item-original").text(`${o.original} QAR`);
+        editingItem.find(".item-discounted").text(`${o.discounted} QAR`);
+        editingItem.find(".item-discount").text(`${o.discount} %`);
         editingItem.find(".item-description").text(o.description || "");
         editingItem.find("img").attr("src", o.img);
         editingItem.find(".stored-productname").val(o.productname);

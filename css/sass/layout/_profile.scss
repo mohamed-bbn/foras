@@ -1576,6 +1576,21 @@
                  background: $orange;
              }
          }
+         .btnaction {
+             display: flex;
+             align-items: center;
+             gap: $com-spacing-2;
+             .cancel {
+                 display: none;
+                 min-width: 92px;
+                 height: 44px;
+                 border-radius: 8px;
+                 padding: $com-spacing-2 $com-spacing-5;
+                 background: #F6F1EA;
+                 text-align: center;
+                 cursor: pointer;
+             }
+         }
      }
      //  button:disabled {
      //      background: #ccc;
@@ -1875,13 +1890,11 @@
              width: auto;
              gap: $com-spacing-2;
              box-shadow: none;
+             border-radius: 8px;
          }
          &.flex {
              justify-content: flex-start;
              gap: $com-spacing-2;
-             a {
-                 cursor: pointer;
-             }
          }
      }
  }
@@ -2235,12 +2248,13 @@
                  padding: $com-spacing-2 $com-spacing-5;
              }
              .cancel {
-                 @include flex;
+                 display: none;
                  min-width: 92px;
-                 height: 40px;
+                 height: 44px;
                  border-radius: 8px;
                  padding: $com-spacing-2 $com-spacing-5;
                  background: #F6F1EA;
+                 text-align: center;
                  cursor: pointer;
              }
          }

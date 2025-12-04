@@ -7146,6 +7146,19 @@ border: 1px solid #065fd4; */ }
       border-radius: 8px; }
       .business-register .minhead .bottom:hover {
         background: #FF5028; }
+    .business-register .minhead .btnaction {
+      display: flex;
+      align-items: center;
+      gap: 8px; }
+      .business-register .minhead .btnaction .cancel {
+        display: none;
+        min-width: 92px;
+        height: 44px;
+        border-radius: 8px;
+        padding: 8px 20px;
+        background: #F6F1EA;
+        text-align: center;
+        cursor: pointer; }
   .business-register .add-btn {
     display: flex;
     align-items: center;
@@ -7425,12 +7438,11 @@ border: 1px solid #065fd4; */ }
   .offers-container .field .bottom {
     width: auto;
     gap: 8px;
-    box-shadow: none; }
+    box-shadow: none;
+    border-radius: 8px; }
   .offers-container .field.flex {
     justify-content: flex-start;
     gap: 8px; }
-    .offers-container .field.flex a {
-      cursor: pointer; }
 
 .titleoffers {
   display: flex;
@@ -7728,14 +7740,13 @@ border: 1px solid #065fd4; */ }
         gap: 4px;
         padding: 8px 20px; }
       .dashboard .address-container .flex .cancel {
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        display: none;
         min-width: 92px;
-        height: 40px;
+        height: 44px;
         border-radius: 8px;
         padding: 8px 20px;
         background: #F6F1EA;
+        text-align: center;
         cursor: pointer; }
   .dashboard .offers-container {
     background: #fff;
