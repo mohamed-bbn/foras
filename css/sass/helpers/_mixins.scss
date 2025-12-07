@@ -338,14 +338,14 @@
 }
 
 @mixin map-back {
-    display: flex;
-    align-items: center;
-    height: 280px;
+    @include flex;
+    height: 200px;
     padding: $zero;
     background: $ofwhite;
-    @include flex;
-    @media (max-width: 999px) {
-        height: 230px;
+    @media (max-width: 999px) {}
+    &::after {
+        @include overlay;
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 100%);
     }
     img {
         position: absolute;
@@ -355,8 +355,30 @@
         height: $fullwidth;
         object-fit: cover;
     }
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: $com-spacing-3;
+        flex-wrap: wrap;
+        z-index: 10;
+    }
     .title {
-        color: #9c005d;
+        color: $white;
+        font-weight: 400;
+    }
+    p {
+        margin-top: $com-spacing-1;
+        color: $white;
+        font-size: 18px;
+        font-weight: 400;
+    }
+    .bottom {
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: 400;
+        gap: $com-spacing-1;
+        padding: $com-spacing-1 $com-spacing-3;
     }
 }
 

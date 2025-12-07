@@ -296,10 +296,6 @@ function applyItem(data, item = null) {
         item.find(".stored-discount").val(data.discount);
         item.find(".stored-description").val(data.description || "");
         item.find(".stored-img").val(data.img);
-
-
-
-
     } else { // Add new
         let id = Date.now();
         $("#itemsList").prepend(`
