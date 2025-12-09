@@ -112,7 +112,8 @@ $(window).on("load", function() {
     setActiveClass(".listcategory", "a");
     setActiveClass(".listmenuuser", "a");
     setActiveClass(".mallproducts", ".minhead .flex a");
-
+    setActiveClass(".listactions", "a");
+    setActiveClass(".itembar", "a");
     /*----------------------------------------
       ACTIVE CLASS HANDLER
     ----------------------------------------*/

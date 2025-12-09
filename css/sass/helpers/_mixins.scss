@@ -191,7 +191,7 @@
             &.icon-#{nth($type, 1)} {
                 background: nth($type, 2);
                 &:hover {
-                    transform: rotate(360deg);
+                    // transform: rotate(360deg);
                     @include prefixer (box-shadow, 4px 4px 60px rgba(0, 0, 0, 0.1), webkit moz o ms);
                     &::before {
                         transform: scaleX(1.0);
