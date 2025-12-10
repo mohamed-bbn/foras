@@ -790,6 +790,10 @@ $(window).on("load", function() {
        Delete Favorite
      ----------------------------------------*/
 
+    $("#text").on("input", function() {
+        $("#count").text($(this).val().length + " / 500 characters");
+    });
+
 
 }); // END window.load
 

@@ -222,29 +222,36 @@ $("#updateBtn").click(() => {
 
 // Cancel modification
 $("#cancelBtn").click(() => {
-    if (editingItems && editingItems.data("target")) {
-        editingItems.find(".item-name").text(o.titlename);
-        editingItems.find(".item-advtype").text(o.advtype);
-        editingItems.find(".item-location").text(o.location);
-        editingItems.find(".item-startdate").text("startdate: " + o.startdate);
-        editingItems.find(".item-enddate").text("enddate: " + o.enddate);
-        editingItems.find(".item-description").text(o.description || "");
-        editingItems.find("img").attr("src", o.img);
+    if (!editingItems) return;
 
-        editingItems.find(".stored-titlename").val(o.titlename);
-        editingItems.find(".stored-advtype").val(o.advtype);
-        editingItems.find(".stored-location").val(o.location);
-        editingItems.find(".stored-startdate").val(o.startdate);
-        editingItems.find(".stored-enddate").val(o.enddate);
-        editingItems.find(".stored-description").val(o.description || "");
-        editingItems.find(".stored-img").val(o.img);
-    }
+    let o = editingItems.data("target"); // ← مهم جداً
+
+    if (!o) return;
+
+    editingItems.find(".item-name").text(o.titlename);
+    editingItems.find(".item-advtype").text(o.advtype);
+    editingItems.find(".item-location").text(o.location);
+    editingItems.find(".item-startdate").text("From : " + o.startdate);
+    editingItems.find(".item-enddate").text("To : " + o.enddate);
+    editingItems.find(".item-description").text(o.description || "");
+    editingItems.find("img").attr("src", o.img);
+
+    editingItems.find(".stored-titlename").val(o.titlename);
+    editingItems.find(".stored-advtype").val(o.advtype);
+    editingItems.find(".stored-location").val(o.location);
+    editingItems.find(".stored-startdate").val(o.startdate);
+    editingItems.find(".stored-enddate").val(o.enddate);
+    editingItems.find(".stored-description").val(o.description || "");
+    editingItems.find(".stored-img").val(o.img);
+
     resetForm();
+    editingItems = null;
 });
+
 
 // Delete an item
 $(document).on("click", ".del-btn", function() {
-    if (confirm("هل أنت متأكد من الحذف؟"))
+    if (confirm("Are you sure about deleting it?"))
         $(this).closest(".iteminner").remove();
     updateEmptyStates();
 });

@@ -2882,6 +2882,9 @@
                     margin-top: $com-spacing-3;
                     a {
                         border-radius: 50%;
+                        &::before {
+                            border-radius: 50%;
+                        }
                     }
                 }
             }
@@ -3050,7 +3053,8 @@
                 background: $blak;
             }
         }
-        .open {
+        .open,
+        .closed {
             @include flex;
             font-size: 12px;
             font-weight: 400;
@@ -3058,6 +3062,44 @@
             background: #00C950;
             border-radius: 8px;
             padding: $zero $com-spacing-3;
+            text-transform: capitalize;
+        }
+        .closed {
+            background: #FB2C36;
+        }
+        .boxreviews {
+            padding: $com-spacing-3;
+            background: $white;
+            border: 1px solid #E0DBD5;
+            border-radius: 16px;
+            text-align: center;
+            p {
+                color: $orange;
+                text-align: center;
+                font-size: 48px;
+                line-height: 1;
+            }
+            small {
+                color: #727272;
+                font-size: 14px;
+            }
+        }
+        .star {
+            @include flex;
+            gap: $com-spacing-1;
+            margin-top: $com-spacing-2;
+            li {
+                display: flex;
+                height: 12px;
+                svg {
+                    min-width: 12px;
+                    max-width: 12px;
+                    fill: #c3c3c3;
+                }
+                &.active svg {
+                    fill: #FDC700;
+                }
+            }
         }
     }
     .rowbranches {
@@ -3103,11 +3145,39 @@
                 padding: $zero $com-spacing-3;
                 margin-top: $com-spacing-3;
             }
+            .bottoms {
+                display: flex;
+                align-items: center;
+                gap: $com-spacing-4;
+                padding-top: $com-spacing-4;
+                border-top: 1px solid #E0DBD5;
+                margin-top: $com-spacing-4;
+                @media (max-width: 999px) {
+                    padding-top: $com-spacing-3;
+                    margin-top: $com-spacing-3;
+                    gap: $com-spacing-3;
+                }
+                .bottom {
+                    display: flex;
+                    align-items: center;
+                    flex: 1;
+                    gap: $com-spacing-2;
+                    padding: $com-spacing-2;
+                    border-radius: 8px;
+                    @media (max-width: 999px) {}
+                    &:last-child {
+                        background: $white;
+                        border: 1px solid #E0DBD5;
+                        color: $blak;
+                        &:hover {}
+                    }
+                }
+            }
         }
     }
     .rowoffers {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
         width: $fullwidth;
         gap: $com-spacing-4;
         margin-top: $com-spacing-6;
@@ -3204,6 +3274,193 @@
                     margin-top: $com-spacing-1;
                 }
             }
+        }
+    }
+    .coming-soon {
+        text-align: center;
+        border-radius: 20px;
+        padding: $com-spacing-8;
+        margin-top: $com-spacing-6;
+        background: linear-gradient(180deg, #F6F1EA 0%, #FFFFFF 100%);
+        @media (max-width: 999px) {
+            padding: $com-spacing-3;
+            margin-top: $com-spacing-3;
+        }
+        .title {
+            font-size: 24px;
+            font-weight: 400;
+            text-align: center;
+            margin-top: $com-spacing-3;
+        }
+        p {
+            color: #727272;
+            text-align: center;
+            margin-top: $com-spacing-2;
+        }
+    }
+    .writereview {
+        padding: $com-spacing-4;
+        border-radius: 16px;
+        background: $white;
+        margin-top: $com-spacing-6;
+        border: 1px solid $orange;
+        @media (max-width: 999px) {
+            padding: $com-spacing-3;
+            margin-top: $com-spacing-3;
+        }
+        .title {
+            font-size: 22px;
+            font-weight: 400;
+        }
+        .field {
+            .form-control {
+                background: $white;
+                padding-left: .75rem;
+            }
+            #count {
+                color: #727272;
+                font-size: 12px;
+                margin-top: $com-spacing-1;
+            }
+            &.flex {
+                flex-wrap: inherit;
+                gap: $com-spacing-3;
+                .bottom {
+                    width: $fullwidth;
+                    border-radius: 12px;
+                    box-shadow: none;
+                }
+                .cancel {
+                    @include flex;
+                    height: 48px;
+                    padding: $com-spacing-1 $com-spacing-3;
+                    background: $white;
+                    border: 1px solid #E0DBD5;
+                    border-radius: 12px;
+                }
+            }
+        }
+        .rating {
+            display: flex;
+            align-items: center;
+        }
+        .rating>input {
+            display: none
+        }
+        .rating>label {
+            position: relative;
+            font-size: 40px;
+            color: $orange;
+            cursor: pointer
+        }
+        .rating>label::before {
+            content: "\2605";
+            position: absolute;
+            opacity: 0
+        }
+        .rating>label:hover:before,
+        .rating>label:hover~label:before {
+            opacity: 1 !important
+        }
+        .rating>input:checked~label:before {
+            opacity: 1
+        }
+        .rating:hover>input:checked~label:before {
+            opacity: 0.4
+        }
+    }
+    .userreview {
+        padding: $com-spacing-4;
+        border-radius: 16px;
+        background: $white;
+        margin-top: $com-spacing-6;
+        border: 1px solid #E0DBD5;
+        @media (max-width: 999px) {
+            padding: $com-spacing-3;
+            margin-top: $com-spacing-3;
+        }
+        .minhead {
+            .title {
+                font-size: 18px;
+            }
+            .star {
+                margin: $zero;
+            }
+        }
+        .time,
+        .num {
+            display: block;
+            color: #727272;
+            font-size: 14px;
+        }
+    }
+    .boxbanner {
+        display: flex;
+        align-items: flex-end;
+        position: relative;
+        width: $fullwidth;
+        height: 370px;
+        background: linear-gradient(180deg, #16A34A 0%, #22C55E 100%);
+        border: 2px solid #22C55E;
+        border-radius: 16px;
+        overflow: hidden;
+        margin-top: $com-spacing-6;
+        @media (max-width: 999px) {
+            margin-top: $com-spacing-3;
+        }
+        &::after {
+            @include overlay;
+            background: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 100%);
+        }
+        img {
+            position: absolute;
+            top: $zero;
+            left: $zero;
+            width: $fullwidth;
+            height: $fullwidth;
+            object-fit: cover;
+        }
+        .minhead {
+            position: absolute;
+            left: $zero;
+            top: $zero;
+            width: $fullwidth;
+            background: linear-gradient(180deg, #16A34A 0%, #22C55E 100%);
+            padding: $com-spacing-2 $com-spacing-3;
+            z-index: 10;
+            .title {
+                display: flex;
+                align-items: center;
+                gap: $com-spacing-1;
+                font-size: 16px;
+                font-weight: 400;
+            }
+            .bottom {
+                background: $white;
+                border-radius: 8px;
+                color: #16A34A;
+                font-size: 12px;
+                font-weight: 400;
+                padding: $zero $com-spacing-3;
+            }
+        }
+        .text {
+            position: relative;
+            z-index: 10;
+            padding: $com-spacing-6;
+            @media (max-width: 999px) {
+                padding: $com-spacing-3;
+            }
+        }
+        .title {
+            color: $white;
+            font-weight: 400;
+        }
+        p {
+            margin-top: $com-spacing-1;
+            color: $white;
+            font-size: 18px;
+            font-weight: 400;
         }
     }
 }
