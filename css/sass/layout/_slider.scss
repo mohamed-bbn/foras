@@ -1130,6 +1130,7 @@
             }
             .inner {
                 padding: $com-spacing-3;
+                width: $fullwidth;
                 .price {
                     display: flex;
                     align-items: center;
@@ -2058,6 +2059,7 @@
                 }
                 .inner {
                     padding: $com-spacing-3;
+                    width: $fullwidth;
                     .price {
                         display: flex;
                         align-items: center;

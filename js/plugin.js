@@ -253,7 +253,7 @@ $(window).on("load", function() {
         speed: 1000,
         slidesToShow: 4,
         slidesToScroll: 1,
-        autoplay: true,
+        autoplay: false,
         autoplaySpeed: 2000,
         responsive: [
             { breakpoint: 1199, settings: { slidesToShow: 3, slidesToScroll: 1 } },
@@ -263,7 +263,7 @@ $(window).on("load", function() {
         ]
     });
 
-    initializeSlider(".slider-sales,.slider-deals", {
+    initializeSlider(".slider-sales,.slider-deals,.slider-collection", {
         dots: true,
         infinite: true,
         speed: 1000,

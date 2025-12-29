@@ -31,27 +31,29 @@
          attribution: '© OpenStreetMap contributors',
          maxZoom: 18
      }).addTo(map);
-
+     var BASE_PATH = window.location.pathname.includes('/ar/') ?
+         '../' :
+         '';
      var markersData = {
          offers: [
-             { id: 1, coords: [25.2854, 51.5310], icon: 'images/m-1.png', count: 3 },
-             { id: 2, coords: [25.2200, 51.4300], icon: 'images/m-2.jpg', count: 2 },
-             { id: 3, coords: [25.2200, 51.5200], icon: 'images/m-3.png', count: 4 },
-             { id: 4, coords: [25.3300, 51.4500], icon: 'images/m-4.png', count: 5 },
-             { id: 5, coords: [25.3550, 51.4800], icon: 'images/m-5.png', count: 3 },
-             { id: 6, coords: [25.4000, 51.6100], icon: 'images/m-6.png', count: 2 },
-             { id: 7, coords: [25.3900, 51.4200], icon: 'images/m-2.jpg', count: 1 },
-             { id: 8, coords: [25.3533, 51.4880], icon: 'images/m-3.png', count: 4 }
+             { id: 1, coords: [25.2854, 51.5310], icon: BASE_PATH + 'images/m-1.png', count: 3 },
+             { id: 2, coords: [25.2200, 51.4300], icon: BASE_PATH + 'images/m-2.jpg', count: 2 },
+             { id: 3, coords: [25.2200, 51.5200], icon: BASE_PATH + 'images/m-3.png', count: 4 },
+             { id: 4, coords: [25.3300, 51.4500], icon: BASE_PATH + 'images/m-4.png', count: 5 },
+             { id: 5, coords: [25.3550, 51.4800], icon: BASE_PATH + 'images/m-5.png', count: 3 },
+             { id: 6, coords: [25.4000, 51.6100], icon: BASE_PATH + 'images/m-6.png', count: 2 },
+             { id: 7, coords: [25.3900, 51.4200], icon: BASE_PATH + 'images/m-2.jpg', count: 1 },
+             { id: 8, coords: [25.3533, 51.4880], icon: BASE_PATH + 'images/m-3.png', count: 4 }
          ],
          stores: [
-             { id: 11, coords: [25.2854, 51.5310], icon: 'images/m-6.png', count: 2 },
-             { id: 12, coords: [25.2200, 51.4300], icon: 'images/m-5.png', count: 3 },
-             { id: 13, coords: [25.2200, 51.5200], icon: 'images/m-3.png', count: 1 },
-             { id: 14, coords: [25.3300, 51.4500], icon: 'images/m-4.png', count: 4 },
-             { id: 15, coords: [25.3550, 51.4800], icon: 'images/m-5.png', count: 2 },
-             { id: 16, coords: [25.4000, 51.6100], icon: 'images/m-6.png', count: 1 },
-             { id: 17, coords: [25.3900, 51.4200], icon: 'images/m-5.png', count: 2 },
-             { id: 18, coords: [25.3533, 51.4880], icon: 'images/m-1.png', count: 3 }
+             { id: 11, coords: [25.2854, 51.5310], icon: BASE_PATH + 'images/m-6.png', count: 2 },
+             { id: 12, coords: [25.2200, 51.4300], icon: BASE_PATH + 'images/m-5.png', count: 3 },
+             { id: 13, coords: [25.2200, 51.5200], icon: BASE_PATH + 'images/m-3.png', count: 1 },
+             { id: 14, coords: [25.3300, 51.4500], icon: BASE_PATH + 'images/m-4.png', count: 4 },
+             { id: 15, coords: [25.3550, 51.4800], icon: BASE_PATH + 'images/m-5.png', count: 2 },
+             { id: 16, coords: [25.4000, 51.6100], icon: BASE_PATH + 'images/m-6.png', count: 1 },
+             { id: 17, coords: [25.3900, 51.4200], icon: BASE_PATH + 'images/m-5.png', count: 2 },
+             { id: 18, coords: [25.3533, 51.4880], icon: BASE_PATH + 'images/m-1.png', count: 3 }
          ],
          realestate: [
              { id: 101, coords: [25.2854, 51.5310], count: 3 },
