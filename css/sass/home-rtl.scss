@@ -340,24 +340,22 @@ select.form-control {
 }
 
 .snap-deals {
-    .slider-deals {
-        direction: ltr;
-        .itemrow {
-            direction: rtl;
-            .addfavorite {
+    .itemrow {
+        .addfavorite {
+            left: $auto;
+            right: $com-spacing-5;
+            .tooltip-text {
                 left: $auto;
-                right: $com-spacing-5;
-                .tooltip-text {
+                right: 60px;
+                &::after {
                     left: $auto;
-                    right: 60px;
-                    &::after {
-                        left: $auto;
-                        right: -8px;
-                        rotate: -90deg;
-                    }
+                    right: -8px;
                 }
             }
         }
+    }
+    .slider-deals {
+        direction: ltr;
     }
 }
 
@@ -939,7 +937,6 @@ select.form-control {
 }
 
 .item-realestate,
-.snap-deals,
 .flash-sales,
 .items-collection {
     .slick-prev {

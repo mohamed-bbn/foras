@@ -3241,14 +3241,188 @@
           height: 100%;
           object-fit: cover; }
 
+.snap-deals .seeall {
+  margin: 0px !important; }
 .snap-deals .sliditems {
   position: relative;
-  margin-top: 24px; }
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px; }
   @media (max-width: 999px) {
     .snap-deals .sliditems {
-      margin-top: 12px; } }
+      grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 550px) {
+    .snap-deals .sliditems {
+      grid-template-columns: repeat(1, 1fr); } }
+.snap-deals .itemrow {
+  position: relative;
+  background: #fff;
+  border: 1px solid #E0DBD5;
+  box-shadow: 0px 16px 22px 0px #00000008;
+  border-radius: 10px;
+  overflow: hidden; }
+  .snap-deals .itemrow .addfavorite {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: #FF5028;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    background-clip: padding-box;
+    box-shadow: 10px 5px 40px #6b6b6b1f;
+    -moz-transition: all 0.2s ease-in-out 0s;
+    -o-transition: all 0.2s ease-in-out 0s;
+    -webkit-transition: all 0.2s ease-in-out 0s;
+    transition: all 0.2s ease-in-out 0s;
+    z-index: 1;
+    cursor: pointer; }
+    .snap-deals .itemrow .addfavorite:hover .tooltip-text {
+      visibility: visible;
+      opacity: 1; }
+    .snap-deals .itemrow .addfavorite.active {
+      background: #fff; }
+      .snap-deals .itemrow .addfavorite.active svg path {
+        fill: #FF5028; }
+    .snap-deals .itemrow .addfavorite svg {
+      width: 24px;
+      height: 24px; }
+      .snap-deals .itemrow .addfavorite svg path {
+        fill: #fff; }
+    .snap-deals .itemrow .addfavorite .tooltip-text {
+      visibility: hidden;
+      position: absolute;
+      left: 60px;
+      font-size: 14px;
+      padding: 4px 8px;
+      min-width: 110px;
+      opacity: 0;
+      transition: opacity 0.3s;
+      color: #fff;
+      background: #000;
+      text-transform: capitalize;
+      white-space: nowrap;
+      text-align: center;
+      border-radius: 4px;
+      box-shadow: rgba(0, 0, 0, 0.3) 4px 4px 8px; }
+      .snap-deals .itemrow .addfavorite .tooltip-text::after {
+        content: "";
+        position: absolute;
+        top: 42%;
+        left: -8px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: #000 transparent transparent transparent;
+        rotate: 90deg; }
+  .snap-deals .itemrow .photo {
+    display: inline-block;
+    width: 100%;
+    height: 380px;
+    margin: 0px 8px;
+    padding: 8px;
+    background: #F6EFD9;
+    border-radius: 10px;
+    overflow: hidden; }
+    @media (max-width: 999px) {
+      .snap-deals .itemrow .photo {
+        height: 280px; } }
+    .snap-deals .itemrow .photo img {
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+      object-fit: cover; }
+  .snap-deals .itemrow .inner {
+    padding: 8px;
+    margin-top: 32px; }
+    .snap-deals .itemrow .inner .title {
+      font-size: 22px;
+      font-weight: 500; }
+      .snap-deals .itemrow .inner .title:hover {
+        color: #FF5028; }
+  .snap-deals .itemrow .textend {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: 8px; }
+    .snap-deals .itemrow .textend span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #E0DBD5;
+      border-radius: 30px;
+      color: #FF5028;
+      font-weight: 600;
+      padding: 4px 12px; }
+    .snap-deals .itemrow .textend p {
+      font-weight: 600;
+      text-transform: capitalize; }
+  .snap-deals .itemrow .contant {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 8px;
+    border: 0.8px solid #0000001A;
+    border-radius: 10px;
+    margin-top: 8px; }
+    .snap-deals .itemrow .contant.green {
+      background: #22C55E0D; }
+    .snap-deals .itemrow .contant .flex {
+      display: flex;
+      align-items: center;
+      gap: 4px; }
+      .snap-deals .itemrow .contant .flex .logo {
+        border-radius: 50%;
+        border: 1px solid #F1F1F1;
+        min-width: 40px;
+        max-width: 40px;
+        height: 40px;
+        overflow: hidden; }
+        .snap-deals .itemrow .contant .flex .logo img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover; }
+      .snap-deals .itemrow .contant .flex .title {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 14px;
+        font-weight: 500; }
+        .snap-deals .itemrow .contant .flex .title span {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: #22C55E;
+          font-size: 12px;
+          font-weight: 500;
+          background: #22C55E1A;
+          border: 0.8px solid #22C55E4D;
+          padding: 0px 4px;
+          border-radius: 6px; }
+      .snap-deals .itemrow .contant .flex p {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: #717182;
+        font-size: 12px;
+        line-height: 16px; }
+        .snap-deals .itemrow .contant .flex p svg {
+          min-width: 9px;
+          max-width: 9px;
+          height: 9px; }
+    .snap-deals .itemrow .contant .price {
+      color: #000;
+      font-size: 14px;
+      font-weight: 600; }
 .snap-deals .slider-deals {
-  position: relative; }
+  position: relative;
+  height: 380px; }
   .snap-deals .slider-deals:hover .slick-prev,
   .snap-deals .slider-deals:hover .slick-next {
     opacity: 1; }
@@ -3329,182 +3503,34 @@
       background: #FF5028; }
       .snap-deals .slider-deals .slick-dots li.slick-active button {
         background: none; }
+  @media (max-width: 999px) {
+    .snap-deals .slider-deals {
+      height: 280px; } }
+  .snap-deals .slider-deals:hover .slick-prev,
+  .snap-deals .slider-deals:hover .slick-next {
+    opacity: 1; }
+  .snap-deals .slider-deals .slick-dots {
+    display: block !important;
+    margin: 0px;
+    text-align: center; }
+    .snap-deals .slider-deals .slick-dots li {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%; }
+      .snap-deals .slider-deals .slick-dots li button {
+        border-radius: 50%; }
   .snap-deals .slider-deals .slick-prev,
   .snap-deals .slider-deals .slick-next {
-    opacity: 1;
-    top: -65px; }
+    opacity: 0;
+    top: 50%; }
     @media (max-width: 1199px) {
       .snap-deals .slider-deals .slick-prev,
       .snap-deals .slider-deals .slick-next {
         display: none !important; } }
+  .snap-deals .slider-deals .slick-next {
+    right: 12px; }
   .snap-deals .slider-deals .slick-prev {
-    left: auto;
-    right: 50px; }
-  .snap-deals .slider-deals .itemrow {
-    position: relative;
-    display: inline-block;
-    margin: 0px 8px;
-    background: #fff;
-    border: 1px solid #E0DBD5;
-    vertical-align: top;
-    box-shadow: 0px 16px 22px 0px #00000008;
-    border-radius: 10px;
-    overflow: hidden; }
-    .snap-deals .slider-deals .itemrow .addfavorite {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 48px;
-      height: 48px;
-      background: #FF5028;
-      -webkit-border-radius: 50%;
-      border-radius: 50%;
-      background-clip: padding-box;
-      box-shadow: 10px 5px 40px #6b6b6b1f;
-      -moz-transition: all 0.2s ease-in-out 0s;
-      -o-transition: all 0.2s ease-in-out 0s;
-      -webkit-transition: all 0.2s ease-in-out 0s;
-      transition: all 0.2s ease-in-out 0s;
-      cursor: pointer; }
-      .snap-deals .slider-deals .itemrow .addfavorite:hover .tooltip-text {
-        visibility: visible;
-        opacity: 1; }
-      .snap-deals .slider-deals .itemrow .addfavorite.active {
-        background: #fff; }
-        .snap-deals .slider-deals .itemrow .addfavorite.active svg path {
-          fill: #FF5028; }
-      .snap-deals .slider-deals .itemrow .addfavorite svg {
-        width: 24px;
-        height: 24px; }
-        .snap-deals .slider-deals .itemrow .addfavorite svg path {
-          fill: #fff; }
-      .snap-deals .slider-deals .itemrow .addfavorite .tooltip-text {
-        visibility: hidden;
-        position: absolute;
-        left: 60px;
-        font-size: 14px;
-        padding: 4px 8px;
-        min-width: 110px;
-        opacity: 0;
-        transition: opacity 0.3s;
-        color: #fff;
-        background: #000;
-        text-transform: capitalize;
-        white-space: nowrap;
-        text-align: center;
-        border-radius: 4px;
-        box-shadow: rgba(0, 0, 0, 0.3) 4px 4px 8px; }
-        .snap-deals .slider-deals .itemrow .addfavorite .tooltip-text::after {
-          content: "";
-          position: absolute;
-          top: 42%;
-          left: -8px;
-          border-width: 5px;
-          border-style: solid;
-          border-color: #000 transparent transparent transparent;
-          rotate: 90deg; }
-    .snap-deals .slider-deals .itemrow .photo {
-      display: block;
-      width: 100%;
-      height: 380px;
-      padding: 8px;
-      background: #F6EFD9;
-      border-radius: 10px;
-      overflow: hidden; }
-      @media (max-width: 999px) {
-        .snap-deals .slider-deals .itemrow .photo {
-          height: 280px; } }
-      .snap-deals .slider-deals .itemrow .photo img {
-        width: 100%;
-        height: 100%;
-        border-radius: 10px;
-        object-fit: cover; }
-    .snap-deals .slider-deals .itemrow .inner {
-      padding: 8px; }
-      .snap-deals .slider-deals .itemrow .inner .title {
-        font-size: 22px;
-        font-weight: 500; }
-        .snap-deals .slider-deals .itemrow .inner .title:hover {
-          color: #FF5028; }
-    .snap-deals .slider-deals .itemrow .textend {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      gap: 8px;
-      margin-top: 8px; }
-      .snap-deals .slider-deals .itemrow .textend span {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border: 1px solid #E0DBD5;
-        border-radius: 30px;
-        color: #FF5028;
-        font-weight: 600;
-        padding: 4px 12px; }
-      .snap-deals .slider-deals .itemrow .textend p {
-        font-weight: 600;
-        text-transform: capitalize; }
-    .snap-deals .slider-deals .itemrow .contant {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 8px;
-      border: 0.8px solid #0000001A;
-      border-radius: 10px;
-      margin-top: 8px; }
-      .snap-deals .slider-deals .itemrow .contant.green {
-        background: #22C55E0D; }
-      .snap-deals .slider-deals .itemrow .contant .flex {
-        display: flex;
-        align-items: center;
-        gap: 4px; }
-        .snap-deals .slider-deals .itemrow .contant .flex .logo {
-          border-radius: 50%;
-          border: 1px solid #F1F1F1;
-          min-width: 40px;
-          max-width: 40px;
-          height: 40px;
-          overflow: hidden; }
-          .snap-deals .slider-deals .itemrow .contant .flex .logo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; }
-        .snap-deals .slider-deals .itemrow .contant .flex .title {
-          display: flex;
-          align-items: center;
-          gap: 8px;
-          font-size: 14px;
-          font-weight: 500; }
-          .snap-deals .slider-deals .itemrow .contant .flex .title span {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #22C55E;
-            font-size: 12px;
-            font-weight: 500;
-            background: #22C55E1A;
-            border: 0.8px solid #22C55E4D;
-            padding: 0px 4px;
-            border-radius: 6px; }
-        .snap-deals .slider-deals .itemrow .contant .flex p {
-          display: flex;
-          align-items: center;
-          gap: 8px;
-          color: #717182;
-          font-size: 12px;
-          line-height: 16px; }
-          .snap-deals .slider-deals .itemrow .contant .flex p svg {
-            min-width: 9px;
-            max-width: 9px;
-            height: 9px; }
-      .snap-deals .slider-deals .itemrow .contant .price {
-        color: #000;
-        font-size: 14px;
-        font-weight: 600; }
+    left: 12px; }
 
 .bottoms.comparebtn {
   display: flex;

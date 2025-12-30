@@ -2848,20 +2848,17 @@ select.form-control {
   .flash-sales .slider-sales .itemrow {
     direction: rtl; }
 
+.snap-deals .itemrow .addfavorite {
+  left: auto;
+  right: 20px; }
+  .snap-deals .itemrow .addfavorite .tooltip-text {
+    left: auto;
+    right: 60px; }
+    .snap-deals .itemrow .addfavorite .tooltip-text::after {
+      left: auto;
+      right: -8px; }
 .snap-deals .slider-deals {
   direction: ltr; }
-  .snap-deals .slider-deals .itemrow {
-    direction: rtl; }
-    .snap-deals .slider-deals .itemrow .addfavorite {
-      left: auto;
-      right: 20px; }
-      .snap-deals .slider-deals .itemrow .addfavorite .tooltip-text {
-        left: auto;
-        right: 60px; }
-        .snap-deals .slider-deals .itemrow .addfavorite .tooltip-text::after {
-          left: auto;
-          right: -8px;
-          rotate: -90deg; }
 
 .item-coupouns .rowbox .item::before {
   left: auto;
@@ -3168,13 +3165,11 @@ select.form-control {
   background: linear-gradient(90deg, #FF5028 0%, #FCAB3C 100%); }
 
 .item-realestate .slick-prev,
-.snap-deals .slick-prev,
 .flash-sales .slick-prev,
 .items-collection .slick-prev {
   right: auto !important;
   left: 0px !important; }
 .item-realestate .slick-next,
-.snap-deals .slick-next,
 .flash-sales .slick-next,
 .items-collection .slick-next {
   right: auto !important;

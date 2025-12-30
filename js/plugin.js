@@ -253,7 +253,7 @@ $(window).on("load", function() {
         speed: 1000,
         slidesToShow: 4,
         slidesToScroll: 1,
-        autoplay: false,
+        autoplay: true,
         autoplaySpeed: 2000,
         responsive: [
             { breakpoint: 1199, settings: { slidesToShow: 3, slidesToScroll: 1 } },
@@ -263,7 +263,7 @@ $(window).on("load", function() {
         ]
     });
 
-    initializeSlider(".slider-sales,.slider-deals,.slider-collection", {
+    initializeSlider(".slider-sales,.slider-collection", {
         dots: true,
         infinite: true,
         speed: 1000,
@@ -278,6 +278,24 @@ $(window).on("load", function() {
             { breakpoint: 550, settings: { slidesToShow: 1, slidesToScroll: 1 } },
 
         ]
+    });
+
+
+    initializeSlider(".slider-deals", {
+        dots: true,
+        infinite: true,
+        speed: 1000,
+        adaptiveHeight: false,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        // responsive: [
+        //     { breakpoint: 1199, settings: { slidesToShow: 3, slidesToScroll: 1 } },
+        //     { breakpoint: 999, settings: { slidesToShow: 2, slidesToScroll: 1 } },
+        //     { breakpoint: 550, settings: { slidesToShow: 1, slidesToScroll: 1 } },
+
+        // ]
     });
 
     initializeSlider(".slider-realestate", {
