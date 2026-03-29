@@ -314,6 +314,18 @@ $(window).on("load", function() {
         ]
     });
 
+     initializeSlider(".slidbanner", {
+        dots: true,
+        infinite: true,
+        speed: 1000,
+        adaptiveHeight: false,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 2000,
+    });
+
+
 
     /*----------------------------------------
       TOGGLE LIST / MAP VIEW

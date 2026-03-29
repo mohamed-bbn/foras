@@ -2,6 +2,7 @@
     position: relative;
     width: $fullwidth;
     background: $white;
+    border-bottom: 1px solid #00000033;
     @include transition(all 0.5s ease-in-out 0s);
     z-index: 1002;
     @media (max-width: 999px) {}
@@ -10,7 +11,7 @@
         top: $zero;
         left: $zero;
         margin-top: -42px;
-        @include prefixer (box-shadow, 4px 4px 60px rgba(0, 0, 0, 0.1), webkit moz o ms);
+        // @include prefixer (box-shadow, 4px 4px 60px rgba(0, 0, 0, 0.1), webkit moz o ms);
         @include transition(all 0.5s ease-in-out 0s);
         .container {
             padding: $com-spacing-2 $com-spacing-3;

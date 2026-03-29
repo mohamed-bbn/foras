@@ -32,11 +32,11 @@
 
 .footer {
     position: relative;
-    padding-top: $com-spacing-6;
+    padding: $com-spacing-6 !important;
     background: #2D2D2D url(../images/footer.png) no-repeat right bottom;
     border-radius: 90px 90px $zero $zero;
     @media (max-width: 999px) {
-        padding-top: $com-spacing-3;
+        padding: $com-spacing-3 $zero;
         border-radius: 14px 14px $zero $zero;
     }
     .getthings {
@@ -145,9 +145,9 @@
                 }
             }
             .list {
-                display: flex;
-                align-items: center;
-                gap: $com-spacing-6;
+                // display: flex;
+                // align-items: center;
+                // gap: $com-spacing-6;
                 @media (max-width: 999px) {
                     justify-content: center;
                     flex-wrap: wrap;
@@ -159,7 +159,11 @@
                     align-items: center;
                     gap: $com-spacing-2;
                     color: $white;
+                    margin-bottom: $com-spacing-3;
                     @include transition(all 0.5s ease-in-out 0s);
+                    &:last-child{
+                        margin: $zero;
+                    }
                     &:hover {
                         color: $orange;
                     }

@@ -468,7 +468,7 @@
     }
     .slick-dots {
         display: none !important;
-        margin-top: $com-spacing-6;
+        margin-top: $com-spacing-4;
         // @media (max-width: 1199px) {
         //     display: flex !important;
         //     align-items: center;
@@ -480,25 +480,26 @@
             margin: $zero 2px;
             padding: $zero;
             cursor: pointer;
-            width: 14px;
-            height: 4px;
-            border-radius: 5px;
             button {
                 font-size: $zero;
                 line-height: $zero;
                 display: $block;
-                width: $fullwidth;
-                height: $fullwidth;
                 border: $zero;
                 outline: $none;
                 background: $ofwhite;
+                background: #0000001A;
+                width: 6px;
+                height: 6px;
+                border-radius: 50%;
                 padding: $zero;
+                @include transition(all 0.5s ease-in-out 0s);
             }
         }
         li.slick-active {
-            background: $orange;
             button {
-                background: $none;
+                background: $orange;
+                width: 16px;
+                border-radius: 4px;
             }
         }
     }

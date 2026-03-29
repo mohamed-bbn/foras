@@ -2116,3 +2116,89 @@
         margin: $zero;
     }
 }
+
+
+.hero-banner{
+     .slidbanner {
+        @include styleslider;
+       .slick-prev,
+        .slick-next {
+            display: none !important;
+        }
+        .slick-dots{
+            display: flex !important;
+            justify-content: center;
+        }
+    }
+  
+ 
+    .item {
+        display: inline-block;
+        margin: $zero $com-spacing-2;
+        position: relative;
+        background: #F6F1EA;
+        height: 488px;
+        border: 1px solid #00000033;
+        border-radius: 12px;
+        overflow: hidden;
+       .flex{
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: $com-spacing-3;
+        }
+        .photo {
+            @include flex;
+            display: block;
+            height: $fullwidth;
+            overflow: hidden;
+            @media (max-width: 999px) {
+                height: 280px;
+            }
+            img {
+                max-width: $fullwidth;
+                max-height: $fullwidth;
+             }
+        }
+        .title{
+            font-size: 28px;
+        }
+        .list{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            margin-top: $com-spacing-6;
+            gap: $com-spacing-4;
+            li{
+                @include flex;
+                background: #1A5FFA;
+                padding: $com-spacing-3;
+                height: 188px;
+                border-radius: 8px;
+                &:nth-child(3){
+                   background: #BC263F;
+                }
+                img{
+                    max-width: $fullwidth;
+                    max-height: $fullwidth;  
+                }
+            }
+        }
+        .text{
+            margin-top: $com-spacing-6;
+            color: $blak;
+            font-weight: 700;
+        }
+        nav{
+            display: flex;
+            gap: $com-spacing-2;
+            margin-top: $com-spacing-6;
+            a{
+                flex: 1;
+                height: 52px;
+                border-radius: 8px;
+                &:last-child{
+                    background: $blak;
+                }
+            }
+        }
+    }
+}
