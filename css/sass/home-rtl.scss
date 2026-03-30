@@ -961,3 +961,33 @@ select.form-control {
 
 
 /* required styles */
+
+.hero-banner {
+    .slidbanner {
+        direction: ltr;
+    }
+    .item {
+        direction: rtl;
+        @media (max-width: 999px) {}
+    }
+}
+
+.items-banner {
+    .slidbanner {
+        direction: ltr;
+    }
+    .inneritem {
+        direction: rtl;
+    }
+}
+
+.item-howworks .item::after {
+    right: auto;
+    left: -50px;
+    rotate: 180deg;
+}
+
+.item-faqs .accordion .accordion-item .accordion-header:after {
+    right: auto;
+    left: 12px;
+}

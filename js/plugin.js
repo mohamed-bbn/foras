@@ -314,7 +314,7 @@ $(window).on("load", function() {
         ]
     });
 
-     initializeSlider(".slidbanner", {
+    initializeSlider(".slidbanner", {
         dots: true,
         infinite: true,
         speed: 1000,

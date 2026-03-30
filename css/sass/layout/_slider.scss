@@ -2117,21 +2117,18 @@
     }
 }
 
-
-.hero-banner{
-     .slidbanner {
+.hero-banner {
+    .slidbanner {
         @include styleslider;
-       .slick-prev,
+        .slick-prev,
         .slick-next {
             display: none !important;
         }
-        .slick-dots{
+        .slick-dots {
             display: flex !important;
             justify-content: center;
         }
     }
-  
- 
     .item {
         display: inline-block;
         margin: $zero $com-spacing-2;
@@ -2140,65 +2137,202 @@
         height: 488px;
         border: 1px solid #00000033;
         border-radius: 12px;
+        vertical-align: top;
         overflow: hidden;
-       .flex{
+        @media (max-width: 999px) {
+            height: auto;
+        }
+        .flex {
             display: grid;
+            align-items: center;
             grid-template-columns: repeat(2, 1fr);
             gap: $com-spacing-3;
+            height: $fullwidth;
+            @media (max-width: 999px) {
+                grid-template-columns: repeat(1, 1fr);
+            }
         }
         .photo {
             @include flex;
-            display: block;
             height: $fullwidth;
             overflow: hidden;
             @media (max-width: 999px) {
-                height: 280px;
+                display: none;
             }
             img {
                 max-width: $fullwidth;
                 max-height: $fullwidth;
-             }
+            }
         }
-        .title{
+        .title {
             font-size: 28px;
+            @media (max-width: 999px) {
+                font-size: 24px;
+                text-align: center;
+            }
         }
-        .list{
+        .list {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             margin-top: $com-spacing-6;
             gap: $com-spacing-4;
-            li{
+            @media (max-width: 999px) {
+                gap: $com-spacing-2;
+                margin-top: $com-spacing-3;
+            }
+            li {
                 @include flex;
                 background: #1A5FFA;
                 padding: $com-spacing-3;
                 height: 188px;
                 border-radius: 8px;
-                &:nth-child(3){
-                   background: #BC263F;
+                @media (max-width: 999px) {
+                    height: 100px;
                 }
-                img{
+                &:nth-child(3) {
+                    background: #BC263F;
+                }
+                img {
                     max-width: $fullwidth;
-                    max-height: $fullwidth;  
+                    max-height: $fullwidth;
                 }
             }
         }
-        .text{
+        .text {
             margin-top: $com-spacing-6;
             color: $blak;
             font-weight: 700;
+            @media (max-width: 999px) {
+                text-align: center;
+                margin-top: $com-spacing-3;
+            }
         }
-        nav{
+        nav {
             display: flex;
             gap: $com-spacing-2;
             margin-top: $com-spacing-6;
-            a{
+            @media (max-width: 999px) {
+                margin-top: $com-spacing-3;
+            }
+            @media (max-width: 450px) {
+                display: block;
+            }
+            a {
                 flex: 1;
                 height: 52px;
                 border-radius: 8px;
-                &:last-child{
+                gap: $com-spacing-1;
+                @media (max-width: 450px) {
+                    height: 42px;
+                    width: $fullwidth;
+                }
+                svg {
+                    min-width: 20px;
+                }
+                &:last-child {
                     background: $blak;
+                    @media (max-width: 450px) {
+                        margin-top: $com-spacing-3;
+                    }
                 }
             }
+        }
+        .listbtn {
+            @media (max-width: 767px) {
+                display: none;
+            }
+            .bottom {
+                border-radius: 60px;
+                &:nth-child(1) {
+                    background: #FFC9BC;
+                    color: $blak;
+                    border: 2px solid $orange;
+                }
+                &:nth-child(3) {
+                    background: #FFCA26;
+                    color: $blak;
+                    border: 2px solid #FFCA2680;
+                    @media (max-width: 999px) {}
+                }
+            }
+        }
+    }
+}
+
+.items-banner {
+    @media (max-width: 450px) {
+        display: none;
+    }
+    .container {
+        display: flex;
+        gap: $com-spacing-4;
+        @media (max-width: 999px) {
+            display: block;
+        }
+    }
+    .slidbanner {
+        @include styleslider;
+        .slick-prev,
+        .slick-next {
+            display: none !important;
+        }
+        .slick-dots {
+            display: flex !important;
+            justify-content: center;
+        }
+    }
+    .inneritem {
+        min-width: 50%;
+        max-width: 50%;
+        @media (max-width: 999px) {
+            min-width: $fullwidth;
+            max-width: $fullwidth;
+            margin-bottom: $com-spacing-3;
+            &:last-child {
+                margin: $zero;
+            }
+        }
+    }
+    .item {
+        display: inline-block;
+        margin: $zero $com-spacing-2;
+        position: relative;
+        background: #F6F1EA80;
+        height: 172px;
+        border-radius: 12px;
+        overflow: hidden;
+        .flex {
+            display: grid;
+            align-items: center;
+            grid-template-columns: repeat(2, 1fr);
+            gap: $com-spacing-3;
+            height: $fullwidth;
+        }
+        .photo {
+            @include flex;
+            height: $fullwidth;
+            overflow: hidden;
+            @media (max-width: 999px) {}
+            img {
+                max-width: $fullwidth;
+                max-height: $fullwidth;
+            }
+        }
+        .title {
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            font-size: 18px;
+        }
+        .text {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            margin-top: $com-spacing-1;
+            color: $blak;
+            font-size: 14px;
         }
     }
 }

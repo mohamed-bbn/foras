@@ -1168,6 +1168,83 @@
             }
         }
     }
+    &.itemstart {
+        margin-top: 185px;
+        @media (max-width: 999px) {
+            margin-top: $zero;
+        }
+        .item {
+            align-items: center;
+            background: linear-gradient(90deg, #FF5028 0%, #FCAB3C 100%);
+            width: 1180px;
+            @media (max-width: 1180px) {
+                width: $fullwidth;
+            }
+            .title {
+                @media (max-width: 999px) {
+                    text-align: center;
+                }
+            }
+            p {
+                color: $white;
+                @media (max-width: 999px) {
+                    text-align: center;
+                }
+            }
+            .subinner {
+                min-width: 50%;
+                max-width: 50%;
+                @media (max-width: 999px) {
+                    min-width: $fullwidth;
+                    max-width: $fullwidth;
+                }
+                .logo {
+                    justify-content: flex-end;
+                    @media (max-width: 999px) {
+                        justify-content: center;
+                    }
+                }
+            }
+        }
+        .itembtn {
+            display: flex;
+            align-items: center;
+            gap: $com-spacing-3;
+            margin-top: $com-spacing-6;
+            @media (max-width: 999px) {
+                justify-content: center;
+            }
+            @media (max-width:450px) {
+                display: block;
+            }
+            .bottom {
+                border-radius: 10px;
+                gap: $com-spacing-1;
+                @media (max-width: 450px) {
+                    width: $fullwidth;
+                    margin-bottom: $com-spacing-3;
+                    &:last-child {
+                        margin: $zero;
+                    }
+                }
+                svg {
+                    min-width: 22px;
+                    max-width: 22px;
+                }
+                &:hover {
+                    transform: translateY(-10px);
+                }
+                &:nth-child(1) {
+                    background: $white;
+                    color: $blak;
+                }
+                &:last-child {
+                    background: $none;
+                    border: 1px solid #F6EFD9;
+                }
+            }
+        }
+    }
 }
 
 .quantity-box {
