@@ -1245,6 +1245,66 @@
             }
         }
     }
+    &.presence {
+        .item {
+            display: grid;
+            align-items: center;
+            grid-template-columns: repeat(2, 1fr);
+            gap: $com-spacing-5;
+            width: 1180px;
+            @media (max-width: 1199px) {
+                width: $fullwidth;
+            }
+            @media (max-width: 999px) {
+                grid-template-columns: repeat(1, 1fr);
+                gap: $com-spacing-3;
+            }
+            .logo {
+                margin-bottom: $com-spacing-4;
+                img {
+                    max-width: 204px
+                }
+            }
+            .title {
+                font-size: 26px;
+                @media (max-width: 999px) {
+                    text-align: center;
+                }
+            }
+            p {
+                font-weight: 700;
+                @media (max-width: 999px) {
+                    text-align: center;
+                }
+            }
+        }
+        .photo {
+            @include flex;
+            img {
+                max-width: $fullwidth;
+                max-height: $fullwidth;
+            }
+        }
+        .itembtn {
+            display: flex;
+            flex-wrap: wrap;
+            gap: $com-spacing-2;
+            margin-top: $com-spacing-3;
+            @media (max-width: 450px) {
+                display: block;
+            }
+        }
+        .bottom {
+            border-radius: 10px;
+            @media (max-width: 450px) {
+                width: $fullwidth;
+                margin-top: $com-spacing-3;
+            }
+            &:last-child {
+                background: #2D2D2D;
+            }
+        }
+    }
 }
 
 .quantity-box {
