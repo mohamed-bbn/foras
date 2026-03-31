@@ -133,7 +133,7 @@
                     text-align: center;
                 }
                 img {
-                    max-width: 280px;
+                    max-width: 248px;
                 }
             }
             p {
@@ -161,7 +161,7 @@
                     color: $white;
                     margin-bottom: $com-spacing-3;
                     @include transition(all 0.5s ease-in-out 0s);
-                    &:last-child{
+                    &:last-child {
                         margin: $zero;
                     }
                     &:hover {

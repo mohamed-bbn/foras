@@ -2790,22 +2790,38 @@
       .hero-banner .item .list {
         gap: 8px;
         margin-top: 12px; } }
-    .hero-banner .item .list li {
+    .hero-banner .item .list a {
       display: flex;
       align-items: center;
       justify-content: center;
       background: #1A5FFA;
-      padding: 12px;
+      padding: 20px;
       height: 188px;
-      border-radius: 8px; }
+      border-radius: 8px;
+      margin: 0px !important; }
       @media (max-width: 999px) {
-        .hero-banner .item .list li {
-          height: 100px; } }
-      .hero-banner .item .list li:nth-child(3) {
+        .hero-banner .item .list a {
+          height: 100px;
+          padding: 12px; } }
+      .hero-banner .item .list a:nth-child(3) {
         background: #BC263F; }
-      .hero-banner .item .list li img {
-        max-width: 100%;
-        max-height: 100%; }
+      .hero-banner .item .list a img {
+        max-width: 154px;
+        max-height: 150px;
+        -moz-transition: all 0.3s ease-in-out 0s;
+        -o-transition: all 0.3s ease-in-out 0s;
+        -webkit-transition: all 0.3s ease-in-out 0s;
+        transition: all 0.3s ease-in-out 0s; }
+        @media (max-width: 999px) {
+          .hero-banner .item .list a img {
+            max-width: 100%;
+            max-height: 100%; } }
+      .hero-banner .item .list a:hover img {
+        -webkit-transform: scale(1.15);
+        -moz-transform: scale(1.15);
+        -ms-transform: scale(1.15);
+        -o-transform: scale(1.15);
+        transform: scale(1.15); }
   .hero-banner .item .text {
     margin-top: 24px;
     color: #000;
@@ -2813,7 +2829,8 @@
     @media (max-width: 999px) {
       .hero-banner .item .text {
         text-align: center;
-        margin-top: 12px; } }
+        margin-top: 12px;
+        font-weight: 400; } }
   .hero-banner .item nav {
     display: flex;
     gap: 8px;
@@ -2836,7 +2853,7 @@
       .hero-banner .item nav a svg {
         min-width: 20px; }
       .hero-banner .item nav a:last-child {
-        background: #000; }
+        background: #2D2D2D; }
         @media (max-width: 450px) {
           .hero-banner .item nav a:last-child {
             margin-top: 12px; } }
@@ -2854,9 +2871,6 @@
       color: #000;
       border: 2px solid #FFCA2680; }
 
-@media (max-width: 450px) {
-  .items-banner {
-    display: none; } }
 .items-banner .container {
   display: flex;
   gap: 16px; }
@@ -2972,12 +2986,18 @@
   height: 172px;
   border-radius: 12px;
   overflow: hidden; }
+  @media (max-width: 999px) {
+    .items-banner .item {
+      height: 120px; } }
   .items-banner .item .flex {
     display: grid;
     align-items: center;
     grid-template-columns: repeat(2, 1fr);
     gap: 12px;
     height: 100%; }
+  @media (max-width: 999px) {
+    .items-banner .item .p-4 {
+      padding: 4px !important; } }
   .items-banner .item .photo {
     display: flex;
     align-items: center;
@@ -3550,5 +3570,8 @@ select.form-control {
 .item-faqs .accordion .accordion-item .accordion-header:after {
   right: auto;
   left: 12px; }
+
+.item-discounts.itemstart .item {
+  background: linear-gradient(90deg, #FCAB3C 0%, #FF5028 100%); }
 
 /*# sourceMappingURL=home-rtl.css.map */

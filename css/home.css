@@ -2790,22 +2790,38 @@
       .hero-banner .item .list {
         gap: 8px;
         margin-top: 12px; } }
-    .hero-banner .item .list li {
+    .hero-banner .item .list a {
       display: flex;
       align-items: center;
       justify-content: center;
       background: #1A5FFA;
-      padding: 12px;
+      padding: 20px;
       height: 188px;
-      border-radius: 8px; }
+      border-radius: 8px;
+      margin: 0px !important; }
       @media (max-width: 999px) {
-        .hero-banner .item .list li {
-          height: 100px; } }
-      .hero-banner .item .list li:nth-child(3) {
+        .hero-banner .item .list a {
+          height: 100px;
+          padding: 12px; } }
+      .hero-banner .item .list a:nth-child(3) {
         background: #BC263F; }
-      .hero-banner .item .list li img {
-        max-width: 100%;
-        max-height: 100%; }
+      .hero-banner .item .list a img {
+        max-width: 154px;
+        max-height: 150px;
+        -moz-transition: all 0.3s ease-in-out 0s;
+        -o-transition: all 0.3s ease-in-out 0s;
+        -webkit-transition: all 0.3s ease-in-out 0s;
+        transition: all 0.3s ease-in-out 0s; }
+        @media (max-width: 999px) {
+          .hero-banner .item .list a img {
+            max-width: 100%;
+            max-height: 100%; } }
+      .hero-banner .item .list a:hover img {
+        -webkit-transform: scale(1.15);
+        -moz-transform: scale(1.15);
+        -ms-transform: scale(1.15);
+        -o-transform: scale(1.15);
+        transform: scale(1.15); }
   .hero-banner .item .text {
     margin-top: 24px;
     color: #000;
@@ -2813,7 +2829,8 @@
     @media (max-width: 999px) {
       .hero-banner .item .text {
         text-align: center;
-        margin-top: 12px; } }
+        margin-top: 12px;
+        font-weight: 400; } }
   .hero-banner .item nav {
     display: flex;
     gap: 8px;
@@ -2836,7 +2853,7 @@
       .hero-banner .item nav a svg {
         min-width: 20px; }
       .hero-banner .item nav a:last-child {
-        background: #000; }
+        background: #2D2D2D; }
         @media (max-width: 450px) {
           .hero-banner .item nav a:last-child {
             margin-top: 12px; } }
@@ -2854,9 +2871,6 @@
       color: #000;
       border: 2px solid #FFCA2680; }
 
-@media (max-width: 450px) {
-  .items-banner {
-    display: none; } }
 .items-banner .container {
   display: flex;
   gap: 16px; }
@@ -2972,12 +2986,18 @@
   height: 172px;
   border-radius: 12px;
   overflow: hidden; }
+  @media (max-width: 999px) {
+    .items-banner .item {
+      height: 120px; } }
   .items-banner .item .flex {
     display: grid;
     align-items: center;
     grid-template-columns: repeat(2, 1fr);
     gap: 12px;
     height: 100%; }
+  @media (max-width: 999px) {
+    .items-banner .item .p-4 {
+      padding: 4px !important; } }
   .items-banner .item .photo {
     display: flex;
     align-items: center;
@@ -6827,29 +6847,51 @@ border: 1px solid #065fd4; */ }
       grid-template-columns: repeat(2, 1fr);
       gap: 12px;
       margin-top: 12px; } }
-.item-featured .item .photo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 300px;
-  border-radius: 12px;
-  background: #FF5028;
-  padding: 20px; }
-  @media (max-width: 767px) {
-    .item-featured .item .photo {
-      height: 140px; } }
-  .item-featured .item .photo img {
-    max-width: 100%;
-    max-height: 100%; }
-.item-featured .item:nth-child(odd) .photo {
-  background: #F6F1EA; }
-.item-featured .item .title {
-  font-size: 18px;
-  margin-top: 8px; }
-.item-featured .item p {
-  font-size: 14px;
-  line-height: 20px; }
+.item-featured .item {
+  display: block; }
+  .item-featured .item .photo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 300px;
+    border-radius: 12px;
+    background: #FF5028;
+    padding: 20px;
+    -moz-transition: all 0.3s ease-in-out 0s;
+    -o-transition: all 0.3s ease-in-out 0s;
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    transition: all 0.3s ease-in-out 0s; }
+    @media (max-width: 767px) {
+      .item-featured .item .photo {
+        height: 140px; } }
+    .item-featured .item .photo img {
+      max-width: 250px;
+      max-height: 165px;
+      -moz-transition: all 0.3s ease-in-out 0s;
+      -o-transition: all 0.3s ease-in-out 0s;
+      -webkit-transition: all 0.3s ease-in-out 0s;
+      transition: all 0.3s ease-in-out 0s; }
+      @media (max-width: 999px) {
+        .item-featured .item .photo img {
+          max-width: 100%;
+          max-height: 100%; } }
+    .item-featured .item .photo:hover {
+      border-radius: 24px; }
+      .item-featured .item .photo:hover img {
+        -webkit-transform: scale(1.15);
+        -moz-transform: scale(1.15);
+        -ms-transform: scale(1.15);
+        -o-transform: scale(1.15);
+        transform: scale(1.15); }
+  .item-featured .item:nth-child(odd) .photo {
+    background: #F6F1EA; }
+  .item-featured .item .title {
+    font-size: 18px;
+    margin-top: 8px; }
+  .item-featured .item p {
+    font-size: 14px;
+    line-height: 20px; }
 
 .browse-category .text {
   margin-top: 4px;
@@ -6871,10 +6913,18 @@ border: 1px solid #065fd4; */ }
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-top: 4px; }
+  margin-top: 4px;
+  padding: 12px;
+  border-radius: 12px;
+  -moz-transition: all 0.3s ease-in-out 0s;
+  -o-transition: all 0.3s ease-in-out 0s;
+  -webkit-transition: all 0.3s ease-in-out 0s;
+  transition: all 0.3s ease-in-out 0s; }
   @media (max-width: 600px) {
     .browse-category .item {
       margin-top: 0px; } }
+  .browse-category .item:hover {
+    background: #ffeeea; }
   .browse-category .item .icon {
     display: flex;
     align-items: center;
@@ -7012,7 +7062,7 @@ border: 1px solid #065fd4; */ }
   .item-howworks .itemtext .title::before {
     content: "";
     position: absolute;
-    bottom: 0px;
+    bottom: -16px;
     left: 0px;
     right: 0px;
     margin: 0px auto;
@@ -10802,7 +10852,7 @@ border: 1px solid #065fd4; */ }
       .footer .rowbox .item .logo {
         text-align: center; } }
     .footer .rowbox .item .logo img {
-      max-width: 280px; }
+      max-width: 248px; }
     .footer .rowbox .item p {
       font-size: 14px;
       color: #fff;
