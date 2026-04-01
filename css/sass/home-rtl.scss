@@ -1029,3 +1029,13 @@ select.form-control {
         }
     }
 }
+
+.contact-message {
+    .itemform {
+        .field {
+            select.form-control {
+                background: #F3F3F5 url(../images/arrow.svg) left 12px center no-repeat !important;
+            }
+        }
+    }
+}

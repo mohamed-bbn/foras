@@ -3596,4 +3596,7 @@ select.form-control {
     .item-canexplore .items .subitem:last-child {
       border: 0px; }
 
+.contact-message .itemform .field select.form-control {
+  background: #F3F3F5 url(../images/arrow.svg) left 12px center no-repeat !important; }
+
 /*# sourceMappingURL=home-rtl.css.map */
