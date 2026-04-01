@@ -995,3 +995,37 @@ select.form-control {
 .item-discounts.itemstart .item {
     background: linear-gradient(90deg, #FCAB3C 0%, #FF5028 100%);
 }
+
+.hero-category {
+    .item {
+        background: linear-gradient(90deg, #FF5028 0%, #FCAB3C 100%);
+    }
+    .items {
+        .subitem {
+            border: $zero;
+            border-left: 1px solid #00000033;
+            @media (max-width: 999px) {
+                border: $zero;
+            }
+            &:last-child {
+                border: $zero;
+            }
+        }
+    }
+}
+
+.item-canexplore {
+    background: #FCFBF8;
+    .items {
+        .subitem {
+            border: $zero;
+            border-left: 1px solid #00000033;
+            @media (max-width: 999px) {
+                border: $zero;
+            }
+            &:last-child {
+                border: $zero;
+            }
+        }
+    }
+}
