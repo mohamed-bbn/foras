@@ -326,6 +326,23 @@ $(window).on("load", function() {
     });
 
 
+    initializeSlider(".slidcomparison", {
+        dots: true,
+        infinite: true,
+        speed: 1000,
+        adaptiveHeight: false,
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        responsive: [
+            { breakpoint: 999, settings: { slidesToShow: 2, slidesToScroll: 1 } },
+            { breakpoint: 450, settings: { slidesToShow: 1, slidesToScroll: 1 } },
+
+        ]
+    });
+
+
 
     /*----------------------------------------
       TOGGLE LIST / MAP VIEW

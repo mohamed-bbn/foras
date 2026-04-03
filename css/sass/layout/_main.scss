@@ -2274,6 +2274,18 @@
             margin-top: $com-spacing-3;
         }
     }
+    &.wayitems {
+        margin-top: 172px;
+        @media (max-width: 999px) {
+            margin-top: $com-spacing-6;
+        }
+        // .container {
+        //     max-width: 80%;
+        //     @media (max-width: 999px) {
+        //         max-width: $fullwidth;
+        //     }
+        // }
+    }
 }
 
 .item-featured {
@@ -2377,6 +2389,23 @@
         }
         .text {
             margin: $zero;
+        }
+    }
+    &.browse-find {
+        .rowbox {
+            max-width: 80%;
+            margin: $com-spacing-8 $auto $zero $auto;
+            @media (max-width: 999px) {
+                max-width: $fullwidth;
+                margin: $zero;
+                margin-top: $com-spacing-6;
+            }
+        }
+        .item {
+            p {
+                line-height: 22px;
+                color: #0B051D4D;
+            }
         }
     }
 }
@@ -2663,7 +2692,9 @@
 .hero-aboutus,
 .hero-advertise,
 .hero-category,
-.hero-partnerwith {
+.hero-partnerwith,
+.hero-categoryprice,
+.hero-howworks {
     .item {
         position: relative;
         background: #F6F1EA;
@@ -2807,10 +2838,28 @@
         @media (max-width: 999px) {
             min-width: $fullwidth;
             max-width: $fullwidth;
+            margin-bottom: $com-spacing-6;
         }
         img {
             max-width: $fullwidth;
             max-height: $fullwidth;
+        }
+    }
+    &.whychecking {
+        margin-bottom: 200px;
+        @media (max-width: 999px) {
+            margin: $zero;
+        }
+        .container {
+            justify-content: center;
+        }
+        .item {
+            .title {
+                span {
+                    font-weight: 300;
+                    color: #2D2D2D;
+                }
+            }
         }
     }
 }
@@ -3170,6 +3219,54 @@
             p {
                 @media (max-width: 999px) {
                     text-align: center;
+                }
+            }
+        }
+    }
+}
+
+.hero-categoryprice,
+.hero-howworks {
+    .item {
+        background: linear-gradient(90deg, #FCAB3C 0%, #FF5028 100%);
+        border: $zero;
+        .photo {
+            align-items: flex-end;
+        }
+    }
+    .text {
+        margin-top: $com-spacing-3 !important;
+    }
+}
+
+.hero-howworks {
+    .items {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: $com-spacing-3;
+        margin-top: $com-spacing-6;
+        @media (max-width: 999px) {
+            flex-wrap: wrap;
+        }
+        a {
+            display: flex;
+            align-items: center;
+            gap: $com-spacing-3;
+            font-size: 20px;
+            font-weight: 700;
+            @media (max-width: 999px) {
+                font-size: 18px;
+                font-weight: 500;
+            }
+            svg {
+                min-width: 50px;
+                max-width: 50px;
+                max-height: 50px;
+                @media (max-width: 999px) {
+                    min-width: 35px;
+                    max-width: 35px;
+                    max-height: 35px;
                 }
             }
         }
@@ -3868,22 +3965,23 @@ p {
     .container {
         display: flex;
         gap: $com-spacing-7;
-        @media (max-width: 999px) {
+        @media (max-width: 1199px) {
             display: block;
+            max-width: 808px;
+        }
+        @media (max-width: 999px) {
+            max-width: $fullwidth;
         }
     }
     .item {
         min-width: 360px;
         max-width: 360px;
         @media (max-width: 1199px) {
-            min-width: 260px;
-            max-width: 260px;
-        }
-        @media (max-width: 999px) {
             min-width: $fullwidth;
             max-width: $fullwidth;
             margin-bottom: $com-spacing-6;
         }
+        @media (max-width: 999px) {}
         .title {
             font-size: 30px;
             @media (max-width: 999px) {
@@ -3943,7 +4041,7 @@ p {
         padding: $com-spacing-6;
         padding-top: $zero;
         border-radius: 16px;
-        @media (max-width: 999px) {
+        @media (max-width: 1199px) {
             margin-bottom: $com-spacing-6;
         }
         .field {
@@ -3968,13 +4066,10 @@ p {
         min-width: 300px;
         max-width: 300px;
         @media (max-width: 1199px) {
-            min-width: 260px;
-            max-width: 260px;
-        }
-        @media (max-width: 999px) {
             min-width: $fullwidth;
             max-width: $fullwidth;
         }
+        @media (max-width: 999px) {}
         .icon {
             @include flex;
             margin: $zero $auto;

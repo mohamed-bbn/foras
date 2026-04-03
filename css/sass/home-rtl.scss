@@ -1039,3 +1039,19 @@ select.form-control {
         }
     }
 }
+
+.hero-categoryprice,
+.hero-howworks {
+    .item {
+        background: linear-gradient(90deg, #FF5028 0%, #FCAB3C 100%);
+    }
+}
+
+.hero-comparison {
+    .slidcomparison {
+        direction: ltr;
+    }
+    .item {
+        direction: rtl;
+    }
+}
