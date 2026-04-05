@@ -1169,7 +1169,7 @@
         }
     }
     &.itemstart {
-        margin-top: 185px;
+        margin-top: $com-spacing-8;
         @media (max-width: 999px) {
             margin-top: $zero;
         }

@@ -2359,10 +2359,10 @@
 }
 
 .hero-comparison {
-    margin: 100px $zero;
-    @media (max-width: 999px) {
-        margin: $zero;
-    }
+    // margin: 100px $zero;
+    // @media (max-width: 999px) {
+    //     margin: $zero;
+    // }
     .headtitle {
         .bottom {
             background: $orange;
@@ -2423,10 +2423,10 @@
 }
 
 .hero-howuse {
-    margin: 100px $zero;
-    @media (max-width: 999px) {
-        margin: $zero;
-    }
+    // margin: 100px $zero;
+    // @media (max-width: 999px) {
+    //     margin: $zero;
+    // }
     .rowbox {
         display: grid;
         grid-template-columns: repeat(4, 1fr);

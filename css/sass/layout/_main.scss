@@ -2275,10 +2275,10 @@
         }
     }
     &.wayitems {
-        margin-top: 172px;
-        @media (max-width: 999px) {
-            margin-top: $com-spacing-6;
-        }
+        // margin-top: 172px;
+        // @media (max-width: 999px) {
+        //     margin-top: $com-spacing-6;
+        // }
         // .container {
         //     max-width: 80%;
         //     @media (max-width: 999px) {
@@ -2846,7 +2846,8 @@
         }
     }
     &.whychecking {
-        margin-bottom: 200px;
+        // margin-bottom: 200px;
+        margin-top: $com-spacing-6;
         @media (max-width: 999px) {
             margin: $zero;
         }
