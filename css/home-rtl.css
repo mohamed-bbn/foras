@@ -3776,4 +3776,13 @@ select.form-control {
 .hero-comparison .item {
   direction: rtl; }
 
+.hero-assistant .formsearch .form-control {
+  padding-right: .75rem;
+  padding-left: 48px; }
+.hero-assistant .formsearch .btnsearch {
+  right: auto;
+  left: 14px; }
+.hero-assistant .listbest .subrowbox .subitem .bottom svg {
+  rotate: 0deg; }
+
 /*# sourceMappingURL=home-rtl.css.map */

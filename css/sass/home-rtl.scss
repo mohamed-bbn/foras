@@ -1055,3 +1055,27 @@ select.form-control {
         direction: rtl;
     }
 }
+
+.hero-assistant {
+    .formsearch {
+        .form-control {
+            padding-right: .75rem;
+            padding-left: $com-spacing-8;
+        }
+        .btnsearch {
+            right: auto;
+            left: 14px;
+        }
+    }
+    .listbest {
+        .subrowbox {
+            .subitem {
+                .bottom {
+                    svg {
+                        rotate: 0deg;
+                    }
+                }
+            }
+        }
+    }
+}
